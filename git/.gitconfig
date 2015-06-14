@@ -1,0 +1,11 @@
+[user]
+	email = hunterboerner@gmail.com
+	name = Theron Boerner
+[push]
+	default = simple
+[hub]
+[hub]
+	protocol = ssh
+[core]
+[core]
+	excludesfile = ~/.global_gitignore
