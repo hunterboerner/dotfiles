@@ -75,6 +75,88 @@
 (add-hook 'ruby-mode-hook 'robe-mode)
 (rvm-use-default)
 
+(require 'fill-column-indicator)
+(setq fci-rule-color "#111122")
+
+;; Auto refresh buffers
+(global-auto-revert-mode 1)
+
+;; Also auto refresh dired, but be quiet about it
+(setq global-auto-revert-non-file-buffers t)
+(setq auto-revert-verbose nil)
+
+;; Show keystrokes in progress
+(setq echo-keystrokes 0.1)
+
+;; Move files to trash when deleting
+(setq delete-by-moving-to-trash t)
+
+;; Real emacs knights don't use shift to mark things
+(setq shift-select-mode nil)
+
+;; Transparently open compressed files
+(auto-compression-mode t)
+
+;; Enable syntax highlighting for older Emacsen that have it off
+(global-font-lock-mode t)
+
+;; Answering just 'y' or 'n' will do
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+;; UTF-8 please
+(setq locale-coding-system 'utf-8) ; pretty
+(set-terminal-coding-system 'utf-8) ; pretty
+(set-keyboard-coding-system 'utf-8) ; pretty
+(set-selection-coding-system 'utf-8) ; please
+(prefer-coding-system 'utf-8) ; with sugar on top
+
+;; Show active region
+(transient-mark-mode 1)
+(make-variable-buffer-local 'transient-mark-mode)
+(put 'transient-mark-mode 'permanent-local t)
+(setq-default transient-mark-mode t)
+
+;; Remove text in active region if inserting text
+(delete-selection-mode 1)
+
+;; Don't highlight matches with jump-char - it's distracting
+(setq jump-char-lazy-highlight-face nil)
+
+;; Always display line and column numbers
+(setq line-number-mode t)
+(setq column-number-mode t)
+
+;; Lines should be 80 characters wide, not 72
+(setq fill-column 80)
+
+;; Save a list of recent files visited. (open recent file with C-x f)
+(recentf-mode 1)
+(setq recentf-max-saved-items 100) ;; just 20 is too recent
+
+;; Undo/redo window configuration with C-c <left>/<right>
+(winner-mode 1)
+
+;; Never insert tabs
+(set-default 'indent-tabs-mode nil)
+
+;; Show me empty lines after buffer end
+(set-default 'indicate-empty-lines t)
+
+;; Easily navigate sillycased words
+(global-subword-mode 1)
+
+;; Don't break lines for me, please
+(setq-default truncate-lines nil)
+
+;; Keep cursor away from edges when scrolling up/down
+(require 'smooth-scrolling)
+
+;; Allow recursive minibuffers
+(setq enable-recursive-minibuffers t)
+
+;; Don't be so stingy on the memory, we have lots now. It's the distant future.
+(setq gc-cons-threshold 20000000)
+
 (setq magit-last-seen-setup-instructions "1.4.0")
 
 (desktop-save-mode 1)
@@ -91,7 +173,20 @@
 (setq auto-save-default nil)
 (setq make-backup-files nil)
 
-(add-hook 'handlebars-mode-hook 'emmet-mode)
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode))
+(add-hook 'web-mode-hook 'emmet-mode)
+
+(setq web-mode-markup-indent-offset 2)
+
+(add-hook 'web-mode-hook #'(lambda () (yas-activate-extra-mode 'handlebars-mode)))
 
 (require 'tern)
 (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
@@ -165,7 +260,7 @@
  '(fci-rule-color "#424242")
  '(package-selected-packages
    (quote
-    (clojure-mode dash-functional js2-refactor list-utils makey multiple-cursors paredit perspective popup projectile queue redshank skewer-mode tern yasnippet package-build shut-up epl git commander f dash s pallet zenburn-theme web-mode volatile-highlights snippet smex smartparens scss-mode sass-mode rvm rust-mode robe rainbow-delimiters python-mode persp-projectile neotree markdown-mode magit impatient-mode highlight-indentation highlight-chars helm-projectile helm-ag haskell-mode handlebars-mode grizzl go-mode flymake-elixir flymake-easy flycheck-rust flx-ido expand-region exec-path-from-shell evil-nerd-commenter emr emmet-mode ember-yasnippets ember-mode elixir-yasnippets elixir-mode discover-js2-refactor diff-hl company-tern comment-dwim-2 color-theme-sanityinc-tomorrow color-theme cider auctex alchemist ac-js2)))
+    (clojure-mode dash-functional js2-refactor list-utils makey multiple-cursors paredit perspective popup projectile queue redshank skewer-mode tern yasnippet package-build shut-up epl git commander f dash s pallet zenburn-theme web-mode volatile-highlights snippet smex smartparens scss-mode sass-mode rvm rust-mode robe rainbow-delimiters python-mode persp-projectile neotree markdown-mode magit impatient-mode highlight-indentation highlight-chars helm-projectile helm-ag haskell-mode grizzl go-mode flymake-elixir flymake-easy flycheck-rust flx-ido expand-region exec-path-from-shell evil-nerd-commenter emr emmet-mode ember-yasnippets ember-mode elixir-yasnippets elixir-mode discover-js2-refactor diff-hl company-tern comment-dwim-2 color-theme-sanityinc-tomorrow color-theme cider auctex alchemist ac-js2)))
  '(tool-bar-mode nil)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
