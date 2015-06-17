@@ -84,6 +84,7 @@
 (depends-on "smex")
 (depends-on "smooth-scrolling")
 (depends-on "snippet")
+(depends-on "spacegray-theme")
 (depends-on "tern")
 (depends-on "volatile-highlights")
 (depends-on "web-mode")
