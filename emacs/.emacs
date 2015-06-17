@@ -3,13 +3,6 @@
 ;;; This is my init file. It's mine.
 
 ;;; Code:
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(package-initialize)
-
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 (require 'pallet)
@@ -149,41 +142,6 @@
 ;; Show me empty lines after buffer end
 (set-default 'indicate-empty-lines t)
 
-(when (fboundp 'define-fringe-bitmap)
-  (define-fringe-bitmap 'my-flycheck-fringe-indicator
-    (vector #b00000000
-            #b00000000
-            #b00000000
-            #b00000000
-            #b00000000
-            #b00000000
-            #b00000000
-            #b00011100
-            #b00111110
-            #b00111110
-            #b00111110
-            #b00011100
-            #b00000000
-            #b00000000
-            #b00000000
-            #b00000000
-            #b01111111)))
-
-(flycheck-define-error-level 'error
-  :overlay-category 'flycheck-error-overlay
-  :fringe-bitmap 'my-flycheck-fringe-indicator
-  :fringe-face 'flycheck-fringe-error)
-
-(flycheck-define-error-level 'warning
-  :overlay-category 'flycheck-warning-overlay
-  :fringe-bitmap 'my-flycheck-fringe-indicator
-  :fringe-face 'flycheck-fringe-warning)
-
-(flycheck-define-error-level 'info
-  :overlay-category 'flycheck-info-overlay
-  :fringe-bitmap 'my-flycheck-fringe-indicator
-  :fringe-face 'flycheck-fringe-info)
-
 ;; Easily navigate sillycased words
 (global-subword-mode 1)
 
@@ -192,7 +150,6 @@
 
 ;; Keep cursor away from edges when scrolling up/down
 (require 'smooth-scrolling)
-(scroll-bar-mode -1)
 
 ;; Allow recursive minibuffers
 (setq enable-recursive-minibuffers t)
@@ -243,14 +200,8 @@
 (setq-default tab-width 2)
 (setq redisplay-dont-pause t)
 
-(setq whitespace-style '(indentation::space lines-tail tabs face newline tab-mark newline-mark))
-(setq whitespace-display-mappings
-      ;; all numbers are Unicode codepoint in decimal. try (insert-char 182 ) to see it
-      '(
-        (space-mark 32 [183] [46]) ; 32 SPACE, 183 MIDDLE DOT 「·」, 46 FULL STOP 「.」
-        (newline-mark 10 [172 10]) ; 10 LINE FEED
-        (tab-mark 9 [9655 9] [92 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
-        ))
+(setq whitespace-style '(face tabs lines-tail trailing))
+(global-whitespace-mode t)
 
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
@@ -259,16 +210,16 @@
 (add-hook 'after-change-major-mode-hook
           '(lambda () (when (eq major-mode 'rust-mode)
                         (setq whitespace-line-column 99))))
-(global-whitespace-mode t)
+
 ;; Enable things
 (yas-global-mode 1)
-;; (global-linum-mode t)
+(global-linum-mode t)
 (volatile-highlights-mode t)
 (electric-pair-mode 1)
 (projectile-global-mode)
+(highlight-indentation-mode t)
 (hc-toggle-highlight-trailing-whitespace t)
 (hc-toggle-highlight-tabs t)
-
 
 ;; Keybindings
 (global-set-key (kbd "C-=") 'er/expand-region)
@@ -338,9 +289,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:height 130 :family "Source Code Pro"))))
- '(hc-trailing-whitespace ((t (:background "#cccccc"))))
- '(whitespace-newline ((t (:background "#2d2d2d" :foreground "#515151" :weight bold)))))
+ '(default ((t (:height 130 :family "Source Code Pro")))))
 
 (provide '.emacs)
 ;;; .emacs ends here
