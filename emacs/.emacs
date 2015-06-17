@@ -3,6 +3,13 @@
 ;;; This is my init file. It's mine.
 
 ;;; Code:
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 (require 'pallet)
@@ -102,7 +109,7 @@
 
 ;; Answering just 'y' or 'n' will do
 (defalias 'yes-or-no-p 'y-or-n-p)
-
+(set-fringe-mode 0)
 ;; UTF-8 please
 (setq locale-coding-system 'utf-8) ; pretty
 (set-terminal-coding-system 'utf-8) ; pretty
@@ -217,16 +224,13 @@
 (volatile-highlights-mode t)
 (electric-pair-mode 1)
 (projectile-global-mode)
-(highlight-indentation-mode t)
-(hc-toggle-highlight-trailing-whitespace t)
-(hc-toggle-highlight-tabs t)
 
 ;; Keybindings
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C--") 'er/contract-region)
 (global-set-key (kbd "s-r") 'emr-show-refactor-menu)
 (global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-;") 'comment-dwim-2)
+;; (global-set-key (kbd "M-;") 'comment-dwim-2)
 
 ;; Setq's
 (setq company-idle-delay 0)
@@ -240,7 +244,7 @@
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 ;;(add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'after-init-hook #'global-flycheck-mode)
-
+(tool-bar-mode -1)
 ;; Custom functions
 
 ;; Custom variables
@@ -253,15 +257,16 @@
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
    (vector "#eaeaea" "#d54e53" "#b9ca4a" "#e7c547" "#7aa6da" "#c397d8" "#70c0b1" "#000000"))
+ '(ansi-term-color-vector
+   [unspecified "#2b303b" "#bf616a" "#a3be8c" "#ebcb8b" "#8fa1b3" "#b48ead" "#8fa1b3" "#c0c5ce"])
  '(custom-enabled-themes (quote (sanityinc-tomorrow-eighties)))
  '(custom-safe-themes
    (quote
-    ("bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "cbef37d6304f12fb789f5d80c2b75ea01465e41073c30341dc84c6c0d1eb611d" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
+    ("1abda075ebacaa3795d675bb2be0a905322ac856f9c0c259da63f9ccfe1962ec" "75c0b1d2528f1bce72f53344939da57e290aa34bea79f3a1ee19d6808cb55149" "3539b3cc5cbba41609117830a79f71309a89782f23c740d4a5b569935f9b7726" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "cbef37d6304f12fb789f5d80c2b75ea01465e41073c30341dc84c6c0d1eb611d" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
  '(fci-rule-color "#424242")
  '(package-selected-packages
    (quote
     (clojure-mode dash-functional js2-refactor list-utils makey multiple-cursors paredit perspective popup projectile queue redshank skewer-mode tern yasnippet package-build shut-up epl git commander f dash s pallet zenburn-theme web-mode volatile-highlights snippet smex smartparens scss-mode sass-mode rvm rust-mode robe rainbow-delimiters python-mode persp-projectile neotree markdown-mode magit impatient-mode highlight-indentation highlight-chars helm-projectile helm-ag haskell-mode grizzl go-mode flymake-elixir flymake-easy flycheck-rust flx-ido expand-region exec-path-from-shell evil-nerd-commenter emr emmet-mode ember-yasnippets ember-mode elixir-yasnippets elixir-mode discover-js2-refactor diff-hl company-tern comment-dwim-2 color-theme-sanityinc-tomorrow color-theme cider auctex alchemist ac-js2)))
- '(tool-bar-mode nil)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
