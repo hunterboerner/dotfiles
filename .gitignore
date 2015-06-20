@@ -36,3 +36,4 @@ emacs/.emacs.d/project-explorer-cache
 emacs/.emacs.d/smex-items
 emacs/.emacs.d/tramp
 **/session.*
+emacs/flycheck_.emacs

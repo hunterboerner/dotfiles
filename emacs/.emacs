@@ -49,6 +49,7 @@
 (define-key projectile-mode-map (kbd "C-c p p") 'projectile-persp-switch-project)
 (setq projectile-indexing-method 'alien)
 (setq projectile-enable-caching t)
+(setq require-final-newline t)
 (defun align-to-colon (begin end)
   "Align region to colon (:) signs"
   (interactive "r")
