@@ -47,6 +47,8 @@
 (helm-projectile-on)
 (require 'persp-projectile)
 (define-key projectile-mode-map (kbd "C-c p p") 'projectile-persp-switch-project)
+(setq projectile-indexing-method 'alien)
+(setq projectile-enable-caching t)
 (defun align-to-colon (begin end)
   "Align region to colon (:) signs"
   (interactive "r")
