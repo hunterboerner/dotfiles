@@ -192,14 +192,15 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . sass-mode))
 (add-hook 'web-mode-hook 'emmet-mode)
 
 (setq web-mode-markup-indent-offset 2)
 
 (add-hook 'web-mode-hook #'(lambda () (yas-activate-extra-mode 'handlebars-mode)))
 
-(require 'tern)
-(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
+;; (require 'tern)
+;; (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
 
 (require 'company-tern)
 (eval-after-load 'company
