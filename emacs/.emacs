@@ -50,6 +50,14 @@
 (setq projectile-indexing-method 'alien)
 (setq projectile-enable-caching t)
 (setq require-final-newline t)
+
+(add-hook 'align-load-hook (lambda ()
+                             (add-to-list 'align-rules-list
+                                          '(text-column-whitespace
+                                            (regexp  . "\\(^\\|\\S-\\)\\([ \t]+\\)")
+                                            (group   . 2)
+                                            (modes   . align-text-modes)
+                                            (repeat  . t)))))
 (defun align-to-colon (begin end)
   "Align region to colon (:) signs"
   (interactive "r")
