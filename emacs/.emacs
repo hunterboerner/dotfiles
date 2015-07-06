@@ -175,13 +175,7 @@
 ;; Don't be so stingy on the memory, we have lots now. It's the distant future.
 (setq gc-cons-threshold 20000000)
 
-(setq magit-last-seen-setup-instructions "1.4.0")
-
 (desktop-save-mode 1)
-
-(advice-add #'magit-key-mode-popup-committing :after
-            (lambda ()
-              (magit-key-mode-toggle-option (quote committing) "--verbose")))
 
 (setq js-indent-level 2)
 (setq css-indent-offset 2)
