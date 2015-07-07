@@ -47,6 +47,7 @@
 (depends-on "highlight-chars")
 (depends-on "highlight-indentation")
 (depends-on "htmlize")
+(depends-on "ibuffer-vc")
 (depends-on "impatient-mode")
 (depends-on "inf-ruby")
 (depends-on "js2-mode")
