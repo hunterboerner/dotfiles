@@ -45,6 +45,7 @@
 (require 'helm-projectile)
 ;; (require 'perspective)
 (helm-projectile-on)
+(global-set-key (kbd "C-x g") 'magit-status)
 ;; (require 'persp-projectile)
 ;; (define-key projectile-mode-map (kbd "C-c p p") 'projectile-persp-switch-project)
 (setq projectile-indexing-method 'alien)
