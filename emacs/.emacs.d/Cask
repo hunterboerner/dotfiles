@@ -69,6 +69,7 @@
 (depends-on "pkg-info")
 (depends-on "popup")
 (depends-on "projectile")
+(depends-on "purescript-mode")
 (depends-on "python-mode")
 (depends-on "queue")
 (depends-on "rainbow-delimiters")
