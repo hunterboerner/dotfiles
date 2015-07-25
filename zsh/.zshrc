@@ -23,6 +23,7 @@ export PATH=$PATH:$HOME/localbins
 export PATH=$HOME/.npm/bin:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
+export PATH=$HOME/.cabal/bin:$PATH
 
 export NVM_DIR=$HOME/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
