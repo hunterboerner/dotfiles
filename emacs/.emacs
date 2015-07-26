@@ -285,7 +285,7 @@
  '(package-selected-packages
    (quote
     (flycheck-pyflakes shm company-ghc helm-core async magit-popup with-editor gist purescript-mode protobuf-mode flatland-theme material-theme ibuffer-vc js2-mode coffee-mode yaml-mode yard-mode flycheck company helm spacegray-theme clojure-mode dash-functional js2-refactor list-utils makey multiple-cursors paredit perspective popup projectile queue redshank skewer-mode tern yasnippet package-build shut-up epl git commander f dash s pallet zenburn-theme web-mode volatile-highlights snippet smex smartparens scss-mode sass-mode rvm rust-mode robe rainbow-delimiters python-mode persp-projectile neotree markdown-mode magit impatient-mode highlight-indentation highlight-chars helm-projectile helm-ag haskell-mode grizzl go-mode flymake-elixir flymake-easy flycheck-rust flx-ido expand-region exec-path-from-shell evil-nerd-commenter emr emmet-mode ember-yasnippets ember-mode elixir-yasnippets elixir-mode discover-js2-refactor diff-hl company-tern comment-dwim-2 color-theme-sanityinc-tomorrow color-theme cider auctex alchemist ac-js2)))
- '(py-shell-name "python3")
+ '(py-shell-name "ipython")
  '(safe-local-variable-values (quote ((py-which-shell . "python3"))))
  '(scroll-bar-mode nil))
 
