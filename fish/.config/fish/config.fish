@@ -34,3 +34,4 @@ alias tf='tail -f'
 alias which-command=whence
 alias z='fasd_cd -d'
 alias zz='fasd_cd -d -i'
+alias c='clear'
