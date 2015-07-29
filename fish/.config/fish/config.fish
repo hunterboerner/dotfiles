@@ -32,6 +32,5 @@ alias screen='TERM=screen screen'
 alias t='fasd_cd -d -i'
 alias tf='tail -f'
 alias which-command=whence
-alias z='fasd_cd -d'
 alias zz='fasd_cd -d -i'
 alias c='clear'

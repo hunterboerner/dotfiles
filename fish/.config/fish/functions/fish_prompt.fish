@@ -27,6 +27,7 @@ function _prompt_rubies -a sep_color -a ruby_color -d 'Display current Ruby (rvm
 end
 
 function fish_prompt
+  z --add "$PWD"
   set -l yellow (set_color yellow)
   set -l green (set_color green)
   set -l normal (set_color normal)
