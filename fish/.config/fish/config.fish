@@ -34,3 +34,4 @@ alias tf='tail -f'
 alias which-command=whence
 alias zz='fasd_cd -d -i'
 alias c='clear'
+alias gup='rvm ruby-2.1.1 do git up'
