@@ -179,6 +179,7 @@
 (setq js-indent-level 2)
 (setq css-indent-offset 2)
 (setq tab-width 2)
+(setq show-paren-delay 0)
 (show-paren-mode 1)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq auto-save-default nil)
