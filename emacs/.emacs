@@ -45,6 +45,8 @@
 (require 'python-mode)
 (require 'multiple-cursors)
 
+(projectile-global-mode)
+
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
@@ -100,8 +102,8 @@
 (add-hook 'ruby-mode-hook 'robe-mode)
 (rvm-use-default)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-(require 'fill-column-indicator)
-(setq fci-rule-color "#111122")
+;;(require 'fill-column-indicator)
+;;(setq fci-rule-color "#111122")
 
 ;; Auto refresh buffers
 (global-auto-revert-mode 1)
@@ -247,7 +249,6 @@
 (global-linum-mode t)
 (volatile-highlights-mode t)
 (electric-pair-mode 1)
-(projectile-global-mode)
 
 ;; Keybindings
 (global-set-key (kbd "C-=") 'er/expand-region)
@@ -290,7 +291,8 @@
  '(magit-push-always-verify nil)
  '(package-selected-packages
    (quote
-    (tuareg caml erlang base16-theme fish-mode flycheck-pyflakes shm company-ghc helm-core async magit-popup with-editor gist purescript-mode protobuf-mode flatland-theme material-theme ibuffer-vc js2-mode coffee-mode yaml-mode yard-mode flycheck company helm spacegray-theme clojure-mode dash-functional js2-refactor list-utils makey multiple-cursors paredit perspective popup projectile queue redshank skewer-mode tern yasnippet package-build shut-up epl git commander f dash s pallet zenburn-theme web-mode volatile-highlights snippet smex smartparens scss-mode sass-mode rvm rust-mode robe rainbow-delimiters python-mode persp-projectile neotree markdown-mode magit impatient-mode highlight-indentation highlight-chars helm-projectile helm-ag haskell-mode grizzl go-mode flymake-elixir flymake-easy flycheck-rust flx-ido expand-region exec-path-from-shell evil-nerd-commenter emr emmet-mode ember-yasnippets ember-mode elixir-yasnippets elixir-mode discover-js2-refactor diff-hl company-tern comment-dwim-2 color-theme-sanityinc-tomorrow color-theme cider auctex alchemist ac-js2)))
+    (paradox toml-mode json-mode tuareg caml erlang base16-theme fish-mode flycheck-pyflakes shm company-ghc gist purescript-mode protobuf-mode flatland-theme ibuffer-vc coffee-mode yard-mode spacegray-theme list-utils makey multiple-cursors paredit popup queue redshank skewer-mode shut-up epl git commander f pallet volatile-highlights snippet scss-mode sass-mode rvm rainbow-delimiters impatient-mode highlight-indentation highlight-chars grizzl flymake-elixir flymake-easy flycheck-rust flx-ido evil-nerd-commenter emr emmet-mode ember-yasnippets elixir-yasnippets discover-js2-refactor company-tern color-theme ac-js2)))
+ '(paradox-github-token t)
  '(py-shell-name "ipython")
  '(safe-local-variable-values
    (quote
