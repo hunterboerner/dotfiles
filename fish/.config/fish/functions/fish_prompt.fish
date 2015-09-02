@@ -42,16 +42,8 @@ function fish_prompt
 
   _prompt_rubies $red $blue
 
-  if [ (_git_branch_name) ]
-    set -l git_branch (_git_branch_name)
-
-    if [ (_git_dirty) ]
-      set git_info $yellow $git_branch
-    else
-      set git_info $green $git_branch
-    end
-    echo -n -s ' ' $git_info $normal
-  end
+  git-radar --fish
+  set_color normal
 
   echo -n -s ' ' $normal
 
