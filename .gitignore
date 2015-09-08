@@ -38,3 +38,4 @@ emacs/.emacs.d/tramp
 **/session.*
 emacs/flycheck_.emacs
 emacs/.emacs.d/recentf
+emacs/.emacs.d/semanticdb/

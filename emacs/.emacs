@@ -270,6 +270,37 @@
 ;;(add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (tool-bar-mode -1)
+
+(setq
+ helm-gtags-ignore-case t
+ helm-gtags-auto-update t
+ helm-gtags-use-input-at-cursor t
+ helm-gtags-pulse-at-cursor t
+ helm-gtags-prefix-key "\C-cg"
+ helm-gtags-suggested-key-mapping t
+ )
+
+(require 'helm-gtags)
+;; Enable helm-gtags-mode
+(add-hook 'dired-mode-hook 'helm-gtags-mode)
+(add-hook 'eshell-mode-hook 'helm-gtags-mode)
+(add-hook 'c-mode-hook 'helm-gtags-mode)
+(add-hook 'c++-mode-hook 'helm-gtags-mode)
+(add-hook 'asm-mode-hook 'helm-gtags-mode)
+
+(define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
+(define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
+(define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
+(define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
+(define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
+(define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
+(setq-local imenu-create-index-function #'ggtags-build-imenu-index)
+
+(setq company-backends (delete 'company-semantic company-backends))
+;; (define-key c-mode-map  [(tab)] 'company-complete)
+;; (define-key c++-mode-map  [(tab)] 'company-complete)
+(add-to-list 'company-backends 'company-c-headers)
+
 ;; Custom functions
 
 ;; Custom variables
@@ -288,10 +319,11 @@
  '(fill-column 80)
  '(global-company-mode t)
  '(haskell-tags-on-save t)
+ '(inhibit-startup-screen t)
  '(magit-push-always-verify nil)
  '(package-selected-packages
    (quote
-    (paradox toml-mode json-mode tuareg caml erlang base16-theme fish-mode flycheck-pyflakes shm company-ghc gist purescript-mode protobuf-mode flatland-theme ibuffer-vc coffee-mode yard-mode spacegray-theme list-utils makey multiple-cursors paredit popup queue redshank skewer-mode shut-up epl git commander f pallet volatile-highlights snippet scss-mode sass-mode rvm rainbow-delimiters impatient-mode highlight-indentation highlight-chars grizzl flymake-elixir flymake-easy flycheck-rust flx-ido evil-nerd-commenter emr emmet-mode ember-yasnippets elixir-yasnippets discover-js2-refactor company-tern color-theme ac-js2)))
+    (disaster company-c-headers helm-gtags paradox toml-mode json-mode tuareg caml erlang base16-theme fish-mode flycheck-pyflakes shm company-ghc gist purescript-mode protobuf-mode flatland-theme ibuffer-vc coffee-mode yard-mode spacegray-theme list-utils makey multiple-cursors paredit popup queue redshank skewer-mode shut-up epl git commander f pallet volatile-highlights snippet scss-mode sass-mode rvm rainbow-delimiters impatient-mode highlight-indentation highlight-chars grizzl flymake-elixir flymake-easy flycheck-rust flx-ido evil-nerd-commenter emr emmet-mode ember-yasnippets elixir-yasnippets discover-js2-refactor company-tern color-theme ac-js2)))
  '(paradox-github-token t)
  '(py-shell-name "ipython")
  '(safe-local-variable-values
