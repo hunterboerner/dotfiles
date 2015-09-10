@@ -185,7 +185,7 @@
 
 (setq js-indent-level 2)
 (setq css-indent-offset 2)
-(setq tab-width 2)
+(setq tab-width 4)
 (setq show-paren-delay 0)
 (show-paren-mode 1)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
@@ -300,7 +300,13 @@
 ;; (define-key c-mode-map  [(tab)] 'company-complete)
 ;; (define-key c++-mode-map  [(tab)] 'company-complete)
 (add-to-list 'company-backends 'company-c-headers)
+(setq
+ ;; use gdb-many-windows by default
+ gdb-many-windows t
 
+ ;; Non-nil means display source file containing the main routine at startup
+ gdb-show-main t
+)
 ;; Custom functions
 
 ;; Custom variables
