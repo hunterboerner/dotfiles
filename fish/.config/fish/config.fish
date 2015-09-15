@@ -2,7 +2,7 @@
 set fish_path $HOME/.oh-my-fish
 set fish_color_command green
 set fish_color_param white
-
+set --universal fish_user_paths $fish_user_paths $HOME/bin
 # Path to your custom folder (default path is ~/.oh-my-fish/custom)
 #set fish_custom $HOME/dotfiles/oh-my-fish
 
