@@ -74,6 +74,7 @@
 (depends-on "material-theme")
 (depends-on "multiple-cursors")
 (depends-on "neotree")
+(depends-on "ninja-mode")
 (depends-on "package-build")
 (depends-on "pallet")
 (depends-on "paradox")
