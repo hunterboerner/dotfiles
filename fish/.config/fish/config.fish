@@ -37,3 +37,4 @@ alias c='clear'
 alias gup='rvm ruby-2.1.1 do git up'
 
 eval (opam config env)
+eval (direnv hook fish)
