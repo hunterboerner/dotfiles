@@ -44,6 +44,10 @@
 (require 'purescript-mode)
 (require 'python-mode)
 (require 'multiple-cursors)
+(require 'hlinum)
+
+(hlinum-activate)
+(global-hl-line-mode)
 
 (projectile-global-mode)
 
@@ -331,7 +335,7 @@
  '(magit-push-always-verify nil)
  '(package-selected-packages
    (quote
-    (alchemist async cask cider clojure-mode company dash diff-hl elixir-mode exec-path-from-shell flycheck gh ghc git-commit haskell-mode helm helm-ag helm-core inf-ruby js2-mode js2-refactor json-reformat magit magit-popup markdown-mode material-theme neotree projectile python-mode robe s smartparens web-mode with-editor yasnippet zenburn-theme undo-tree ninja-mode disaster company-c-headers helm-gtags paradox toml-mode json-mode tuareg caml erlang base16-theme fish-mode flycheck-pyflakes shm company-ghc gist purescript-mode protobuf-mode flatland-theme ibuffer-vc coffee-mode yard-mode spacegray-theme list-utils makey multiple-cursors paredit popup queue redshank skewer-mode shut-up epl git commander f pallet volatile-highlights snippet scss-mode sass-mode rvm rainbow-delimiters impatient-mode highlight-indentation highlight-chars grizzl flymake-elixir flymake-easy flycheck-rust flx-ido evil-nerd-commenter emr emmet-mode ember-yasnippets elixir-yasnippets discover-js2-refactor company-tern color-theme ac-js2)))
+    (hlinum alchemist async cask cider clojure-mode company dash diff-hl elixir-mode exec-path-from-shell flycheck gh ghc git-commit haskell-mode helm helm-ag helm-core inf-ruby js2-mode js2-refactor json-reformat magit magit-popup markdown-mode material-theme neotree projectile python-mode robe s smartparens web-mode with-editor yasnippet zenburn-theme undo-tree ninja-mode disaster company-c-headers helm-gtags paradox toml-mode json-mode tuareg caml erlang base16-theme fish-mode flycheck-pyflakes shm company-ghc gist purescript-mode protobuf-mode flatland-theme ibuffer-vc coffee-mode yard-mode spacegray-theme list-utils makey multiple-cursors paredit popup queue redshank skewer-mode shut-up epl git commander f pallet volatile-highlights snippet scss-mode sass-mode rvm rainbow-delimiters impatient-mode highlight-indentation highlight-chars grizzl flymake-elixir flymake-easy flycheck-rust flx-ido evil-nerd-commenter emr emmet-mode ember-yasnippets elixir-yasnippets discover-js2-refactor company-tern color-theme ac-js2)))
  '(paradox-github-token t)
  '(py-shell-name "ipython")
  '(safe-local-variable-values
@@ -367,7 +371,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:height 130 :family "Source Code Pro")))))
+ '(default ((t (:height 130 :family "Source Code Pro"))))
+ '(linum-highlight-face ((t (:inherit default :weight bold)))))
 
 (provide '.emacs)
 ;;; .emacs ends here

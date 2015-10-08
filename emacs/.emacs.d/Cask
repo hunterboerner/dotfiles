@@ -59,6 +59,7 @@
 (depends-on "helm-gtags")
 (depends-on "highlight-chars")
 (depends-on "highlight-indentation")
+(depends-on "hlinum")
 (depends-on "htmlize")
 (depends-on "ibuffer-vc")
 (depends-on "impatient-mode")
