@@ -81,6 +81,7 @@
 (depends-on "multiple-cursors")
 (depends-on "neotree")
 (depends-on "ninja-mode")
+(depends-on "nlinum")
 (depends-on "package-build")
 (depends-on "pallet")
 (depends-on "paradox")
