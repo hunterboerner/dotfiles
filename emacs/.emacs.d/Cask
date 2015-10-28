@@ -2,6 +2,7 @@
 (source melpa)
 
 (depends-on "ac-js2")
+(depends-on "ace-jump-mode")
 (depends-on "ag")
 (depends-on "alchemist")
 (depends-on "async")

@@ -342,12 +342,13 @@
  '(magit-push-always-verify nil)
  '(package-selected-packages
    (quote
-    (nlinum editorconfig expand-region go-mode haml-mode rust-mode yaml-mode company-auctex auctex llvm-mode ag hlinum alchemist async cask cider clojure-mode company dash diff-hl elixir-mode exec-path-from-shell flycheck gh ghc git-commit haskell-mode helm helm-ag helm-core inf-ruby js2-mode js2-refactor json-reformat magit magit-popup markdown-mode material-theme neotree projectile python-mode robe s smartparens web-mode with-editor yasnippet zenburn-theme undo-tree ninja-mode disaster company-c-headers helm-gtags paradox toml-mode json-mode tuareg caml erlang base16-theme fish-mode flycheck-pyflakes shm company-ghc gist purescript-mode protobuf-mode flatland-theme ibuffer-vc coffee-mode yard-mode spacegray-theme list-utils makey multiple-cursors paredit popup queue redshank skewer-mode shut-up epl git commander f pallet volatile-highlights snippet scss-mode sass-mode rvm rainbow-delimiters impatient-mode highlight-indentation highlight-chars grizzl flymake-elixir flymake-easy flycheck-rust flx-ido evil-nerd-commenter emr emmet-mode ember-yasnippets elixir-yasnippets discover-js2-refactor company-tern color-theme ac-js2)))
+    (ace-jump-mode nlinum editorconfig expand-region go-mode haml-mode rust-mode yaml-mode company-auctex auctex llvm-mode ag hlinum alchemist async cask cider clojure-mode company dash diff-hl elixir-mode exec-path-from-shell flycheck gh ghc git-commit haskell-mode helm helm-ag helm-core inf-ruby js2-mode js2-refactor json-reformat magit magit-popup markdown-mode material-theme neotree projectile python-mode robe s smartparens web-mode with-editor yasnippet zenburn-theme undo-tree ninja-mode disaster company-c-headers helm-gtags paradox toml-mode json-mode tuareg caml erlang base16-theme fish-mode flycheck-pyflakes shm company-ghc gist purescript-mode protobuf-mode flatland-theme ibuffer-vc coffee-mode yard-mode spacegray-theme list-utils makey multiple-cursors paredit popup queue redshank skewer-mode shut-up epl git commander f pallet volatile-highlights snippet scss-mode sass-mode rvm rainbow-delimiters impatient-mode highlight-indentation highlight-chars grizzl flymake-elixir flymake-easy flycheck-rust flx-ido evil-nerd-commenter emr emmet-mode ember-yasnippets elixir-yasnippets discover-js2-refactor company-tern color-theme ac-js2)))
  '(paradox-github-token t)
  '(py-shell-name "ipython")
  '(safe-local-variable-values
    (quote
-    ((erlang-indent-level . 2)
+    ((flycheck-clang-language-standard . c++14)
+     (erlang-indent-level . 2)
      (py-which-shell . "python3"))))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
