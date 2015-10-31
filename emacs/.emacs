@@ -25,7 +25,6 @@
 (require 'smex)
 (require 'magit)
 (require 'volatile-highlights)
-(require 'diff-hl)
 (require 'yasnippet)
 (require 'elixir-yasnippets)
 (require 'expand-region)
@@ -53,6 +52,8 @@
 
 (hlinum-activate)
 (global-hl-line-mode)
+
+(smartparens-global-mode)
 
 (projectile-global-mode)
 
@@ -272,7 +273,7 @@
 ;; (setq alchemist-project-compile-when-needed t)
 (setq projectile-completion-system 'grizzl)
 (setq-default indent-tabs-mode nil)
-(global-diff-hl-mode)
+
 ;; Hooks
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 ;;(add-hook 'after-init-hook 'global-company-mode)

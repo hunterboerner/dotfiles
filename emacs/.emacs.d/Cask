@@ -27,6 +27,7 @@
 (depends-on "disaster")
 (depends-on "discover")
 (depends-on "discover-js2-refactor")
+(depends-on "editorconfig")
 (depends-on "elixir-mode")
 (depends-on "elixir-yasnippets")
 (depends-on "ember-mode")
