@@ -44,6 +44,16 @@
 (require 'python-mode)
 (require 'multiple-cursors)
 (require 'hlinum)
+(require 'racer)
+(require 'ace-jump-mode)
+
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(ace-jump-mode-enable-mark-sync)
+(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
+(add-hook 'rust-mode-hook #'racer-mode)
+(setq company-tooltip-align-annotations t)
+(setq racer-rust-src-path "~/code/rust/src/")
 
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
@@ -248,6 +258,8 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+
 (set (make-local-variable 'whitespace-line-column) 80)
 (add-hook 'after-change-major-mode-hook
           '(lambda () (when (eq major-mode 'rust-mode)
@@ -333,7 +345,8 @@
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
-    ("11636897679ca534f0dec6f5e3cb12f28bf217a527755f6b9e744bd240ed47e1" "19352d62ea0395879be564fc36bc0b4780d9768a964d26dfae8aad218062858d" "17f35b689dd41e49cb740bfb810ac8a53d13292cbebf68f41f772787d8b3aebf" "3514fe07ecd0dc2f8b747706370c169b3d8053f825c009414e1a86eac8978327" "1dd2d01010a9ae1f54775abceb080e231b6f9c781c5282b25b8c4edd3f3a14e0" "3f04f37604c5f5cc3c71bc1a4a604ed8be340d0f150946b25658e403ccbad6d2" "d7e434a3c19f87fa00b945edfaedc9a21a6e436a7814c23277d4112ad83b5e85" "d72836155cd3b3e52fd86a9164120d597cbe12a67609ab90effa54710b2ac53b" "6ebb2401451dc6d01cd761eef8fe24812a57793c5ccc427b600893fa1d767b1d" "d3a86848a5e9bf123f3dd3bf82ab96995837b50f780dd7d5f65dc72c2b81a955" "9fab7d4f70b99927d898a0c93b1ae90fc1529248b9c2604ed88e864fc2665aa7" "95a6ac1b01dcaed4175946b581461e16e1b909d354ada79770c0821e491067c6" "a2e7b508533d46b701ad3b055e7c708323fb110b6676a8be458a758dd8f24e27" "b06aaf5cefc4043ba018ca497a9414141341cb5a2152db84a9a80020d35644d1" "9e7cc7f1db252d6fe0c7cc25d72d768712a97cda1f77bf63f0c1fd7be5dee7f4" "4ff23437b3166eeb7ca9fa026b2b030bba7c0dfdc1ff94df14dfb1bcaee56c78" "f0e69da2cf73c7f153fc09ed3e0ba6e1fd670fec09b8a6a8ed7b4f9efea3b501" "9f3a4edb56d094366afed2a9ba3311bbced0f32ca44a47a765d8ef4ce5b8e4ea" "ced74ff794aad9ac93266bf9a9a92c5641c01b05715c6862e30459a24844eec9" "3328e7238e0f6d0a5e1793539dfe55c2685f24b6cdff099c9a0c185b71fbfff9" "113ae6902d98261317b5507e55ac6e7758af81fc4660c34130490252640224a2" "6dbd0dd4c344f1ca534422cc5a1fd3ed822dcde947ae983948b70c7284a0ed33" "3dafeadb813a33031848dfebfa0928e37e7a3c18efefa10f3e9f48d1993598d3" "83279c1d867646c5eea8a804a67a23e581b9b3b67f007e7831279ed3a4de9466" "e7ec0cc3ce134cc0bd420b98573bbd339a908ac24162b8034c98e1ba5ee1f9f6" "1abda075ebacaa3795d675bb2be0a905322ac856f9c0c259da63f9ccfe1962ec" "75c0b1d2528f1bce72f53344939da57e290aa34bea79f3a1ee19d6808cb55149" "3539b3cc5cbba41609117830a79f71309a89782f23c740d4a5b569935f9b7726" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "cbef37d6304f12fb789f5d80c2b75ea01465e41073c30341dc84c6c0d1eb611d" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
+    ("f5eb916f6bd4e743206913e6f28051249de8ccfd070eae47b5bde31ee813d55f" "11636897679ca534f0dec6f5e3cb12f28bf217a527755f6b9e744bd240ed47e1" "19352d62ea0395879be564fc36bc0b4780d9768a964d26dfae8aad218062858d" "17f35b689dd41e49cb740bfb810ac8a53d13292cbebf68f41f772787d8b3aebf" "3514fe07ecd0dc2f8b747706370c169b3d8053f825c009414e1a86eac8978327" "1dd2d01010a9ae1f54775abceb080e231b6f9c781c5282b25b8c4edd3f3a14e0" "3f04f37604c5f5cc3c71bc1a4a604ed8be340d0f150946b25658e403ccbad6d2" "d7e434a3c19f87fa00b945edfaedc9a21a6e436a7814c23277d4112ad83b5e85" "d72836155cd3b3e52fd86a9164120d597cbe12a67609ab90effa54710b2ac53b" "6ebb2401451dc6d01cd761eef8fe24812a57793c5ccc427b600893fa1d767b1d" "d3a86848a5e9bf123f3dd3bf82ab96995837b50f780dd7d5f65dc72c2b81a955" "9fab7d4f70b99927d898a0c93b1ae90fc1529248b9c2604ed88e864fc2665aa7" "95a6ac1b01dcaed4175946b581461e16e1b909d354ada79770c0821e491067c6" "a2e7b508533d46b701ad3b055e7c708323fb110b6676a8be458a758dd8f24e27" "b06aaf5cefc4043ba018ca497a9414141341cb5a2152db84a9a80020d35644d1" "9e7cc7f1db252d6fe0c7cc25d72d768712a97cda1f77bf63f0c1fd7be5dee7f4" "4ff23437b3166eeb7ca9fa026b2b030bba7c0dfdc1ff94df14dfb1bcaee56c78" "f0e69da2cf73c7f153fc09ed3e0ba6e1fd670fec09b8a6a8ed7b4f9efea3b501" "9f3a4edb56d094366afed2a9ba3311bbced0f32ca44a47a765d8ef4ce5b8e4ea" "ced74ff794aad9ac93266bf9a9a92c5641c01b05715c6862e30459a24844eec9" "3328e7238e0f6d0a5e1793539dfe55c2685f24b6cdff099c9a0c185b71fbfff9" "113ae6902d98261317b5507e55ac6e7758af81fc4660c34130490252640224a2" "6dbd0dd4c344f1ca534422cc5a1fd3ed822dcde947ae983948b70c7284a0ed33" "3dafeadb813a33031848dfebfa0928e37e7a3c18efefa10f3e9f48d1993598d3" "83279c1d867646c5eea8a804a67a23e581b9b3b67f007e7831279ed3a4de9466" "e7ec0cc3ce134cc0bd420b98573bbd339a908ac24162b8034c98e1ba5ee1f9f6" "1abda075ebacaa3795d675bb2be0a905322ac856f9c0c259da63f9ccfe1962ec" "75c0b1d2528f1bce72f53344939da57e290aa34bea79f3a1ee19d6808cb55149" "3539b3cc5cbba41609117830a79f71309a89782f23c740d4a5b569935f9b7726" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "cbef37d6304f12fb789f5d80c2b75ea01465e41073c30341dc84c6c0d1eb611d" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
+ '(ede-project-directories (quote ("/Users/theron/code/hunterboerner/cpp-class")))
  '(fci-rule-color "#202325")
  '(fill-column 80)
  '(fringe-mode (quote (1 . 1)) nil (fringe))
@@ -343,7 +356,7 @@
  '(magit-push-always-verify nil)
  '(package-selected-packages
    (quote
-    (ace-jump-mode nlinum editorconfig expand-region go-mode haml-mode rust-mode yaml-mode company-auctex auctex llvm-mode ag hlinum alchemist async cask cider clojure-mode company dash diff-hl elixir-mode exec-path-from-shell flycheck gh ghc git-commit haskell-mode helm helm-ag helm-core inf-ruby js2-mode js2-refactor json-reformat magit magit-popup markdown-mode material-theme neotree projectile python-mode robe s smartparens web-mode with-editor yasnippet zenburn-theme undo-tree ninja-mode disaster company-c-headers helm-gtags paradox toml-mode json-mode tuareg caml erlang base16-theme fish-mode flycheck-pyflakes shm company-ghc gist purescript-mode protobuf-mode flatland-theme ibuffer-vc coffee-mode yard-mode spacegray-theme list-utils makey multiple-cursors paredit popup queue redshank skewer-mode shut-up epl git commander f pallet volatile-highlights snippet scss-mode sass-mode rvm rainbow-delimiters impatient-mode highlight-indentation highlight-chars grizzl flymake-elixir flymake-easy flycheck-rust flx-ido evil-nerd-commenter emr emmet-mode ember-yasnippets elixir-yasnippets discover-js2-refactor company-tern color-theme ac-js2)))
+    (racer ace-jump-mode nlinum editorconfig expand-region go-mode haml-mode rust-mode yaml-mode company-auctex auctex llvm-mode ag hlinum alchemist async cask cider clojure-mode company dash diff-hl elixir-mode exec-path-from-shell flycheck gh ghc git-commit haskell-mode helm helm-ag helm-core inf-ruby js2-mode js2-refactor json-reformat magit magit-popup markdown-mode material-theme neotree projectile python-mode robe s smartparens web-mode with-editor yasnippet zenburn-theme undo-tree ninja-mode disaster company-c-headers helm-gtags paradox toml-mode json-mode tuareg caml erlang base16-theme fish-mode flycheck-pyflakes shm company-ghc gist purescript-mode protobuf-mode flatland-theme ibuffer-vc coffee-mode yard-mode spacegray-theme list-utils makey multiple-cursors paredit popup queue redshank skewer-mode shut-up epl git commander f pallet volatile-highlights snippet scss-mode sass-mode rvm rainbow-delimiters impatient-mode highlight-indentation highlight-chars grizzl flymake-elixir flymake-easy flycheck-rust flx-ido evil-nerd-commenter emr emmet-mode ember-yasnippets elixir-yasnippets discover-js2-refactor company-tern color-theme ac-js2)))
  '(paradox-github-token t)
  '(py-shell-name "ipython")
  '(safe-local-variable-values
