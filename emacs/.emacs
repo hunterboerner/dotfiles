@@ -55,6 +55,11 @@
 (setq company-tooltip-align-annotations t)
 (setq racer-rust-src-path "~/code/rust/src/")
 
+(add-hook 'js-mode-hook
+          (lambda ()
+            (push '("function" . ?ƒ) prettify-symbols-alist)
+            (prettify-symbols-mode)))
+
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (add-hook 'LaTeX-mode-hook (lambda ()
@@ -63,7 +68,7 @@
 (hlinum-activate)
 (global-hl-line-mode)
 
-(smartparens-global-mode)
+;; (smartparens-global-mode)
 
 (projectile-global-mode)
 
@@ -396,6 +401,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#3F3F3F" :foreground "#DCDCCC" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "nil" :family "Source Code Pro"))))
+ '(font-lock-keyword-face ((t (:foreground "#F0DFAF" :weight normal))))
  '(linum-highlight-face ((t (:inherit default :weight bold)))))
 
 (provide '.emacs)
