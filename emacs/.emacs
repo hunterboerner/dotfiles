@@ -66,7 +66,6 @@
                              (TeX-fold-mode 1)))
 
 (hlinum-activate)
-(global-hl-line-mode)
 
 ;; (smartparens-global-mode)
 
