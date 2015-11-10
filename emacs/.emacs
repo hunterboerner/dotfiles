@@ -21,7 +21,6 @@
 (require 'js2-refactor)
 (require 'elixir-mode)
 (require 'alchemist)
-(require 'smartparens-config)
 (require 'smex)
 (require 'magit)
 (require 'volatile-highlights)
@@ -67,7 +66,9 @@
 
 (hlinum-activate)
 
-;; (smartparens-global-mode)
+(smartparens-global-mode)
+(define-key smartparens-mode-map (kbd "M-<delete>") 'sp-unwrap-sexp)
+(define-key smartparens-mode-map (kbd "M-<backspace>") 'sp-backward-unwrap-sexp)
 
 (projectile-global-mode)
 
@@ -273,7 +274,6 @@
 (yas-global-mode 1)
 (global-nlinum-mode t)
 (volatile-highlights-mode t)
-(electric-pair-mode 1)
 
 ;; Keybindings
 (global-set-key (kbd "C-=") 'er/expand-region)
