@@ -45,6 +45,12 @@
 (require 'racer)
 (require 'ace-jump-mode)
 
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'org-iswitchb)
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (ace-jump-mode-enable-mark-sync)
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
