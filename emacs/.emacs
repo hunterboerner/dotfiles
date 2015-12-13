@@ -130,6 +130,7 @@
 (add-hook 'ruby-mode-hook 'robe-mode)
 (rvm-use-default)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-x C-f") 'helm-mini)
 ;;(require 'fill-column-indicator)
 ;;(setq fci-rule-color "#111122")
 
@@ -181,7 +182,6 @@
 (setq line-number-mode t)
 (setq column-number-mode t)
 
-;; Save a list of recent files visited. (open recent file with C-x f)
 (recentf-mode 1)
 (setq recentf-max-saved-items 100) ;; just 20 is too recent
 
