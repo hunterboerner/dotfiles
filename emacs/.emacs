@@ -130,7 +130,7 @@
 (add-hook 'ruby-mode-hook 'robe-mode)
 (rvm-use-default)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-x C-f") 'helm-mini)
+(global-set-key (kbd "C-x b") 'helm-mini)
 ;;(require 'fill-column-indicator)
 ;;(setq fci-rule-color "#111122")
 
