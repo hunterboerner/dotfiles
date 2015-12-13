@@ -49,7 +49,7 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
-(setq org-default-notes-file (concat org-directory "/notes.org"))
+(setq org-default-notes-file "~/org/notes.org")
 
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (ace-jump-mode-enable-mark-sync)
