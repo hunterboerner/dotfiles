@@ -131,6 +131,12 @@
 (rvm-use-default)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(setq helm-buffers-fuzzy-matching t
+      helm-recentf-fuzzy-match    t)
+
 ;;(require 'fill-column-indicator)
 ;;(setq fci-rule-color "#111122")
 
