@@ -373,6 +373,7 @@
  '(global-company-mode t)
  '(global-prettify-symbols-mode t)
  '(haskell-tags-on-save t)
+ '(helm-quick-update t)
  '(inhibit-startup-screen t)
  '(magit-push-always-verify nil)
  '(magit-revert-buffers nil)
