@@ -19,6 +19,6 @@
 (setq select-enable-clipboard t)
 (setq ns-use-mac-modifier-symbols nil) ; display standard Emacs (and not
                                        ; standard Mac) modifier symbols)
-
+(global-hl-line-mode t)
 (provide 'Preferences)
 ;;; Preferences.el ends here
