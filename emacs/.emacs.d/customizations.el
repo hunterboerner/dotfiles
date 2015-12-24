@@ -94,4 +94,7 @@
  '(font-lock-keyword-face ((t (:foreground "#F0DFAF" :weight normal))))
  '(linum-highlight-face ((t (:inherit default :weight bold))))
  '(minibuffer-inactive-mode-default ((t (:inherit autoface-default))) t)
+ '(mode-line ((t (:background "#2B2B2B" :foreground "#8FB28F" :box -1 :strike-through nil :underline nil :slant normal :weight normal :width normal))))
+ '(mode-line-highlight ((t (:box (:line-width 2 :color "grey40")))))
+ '(mode-line-inactive ((t (:inherit mode-line :background "#383838" :foreground "#5F7F5F" :box (:line-width -1 :color "#383838") :strike-through nil :underline nil :slant normal :weight normal :width normal))))
  '(text-mode-default ((t (:inherit autoface-default)))))

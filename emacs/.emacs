@@ -294,10 +294,13 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-;") 'comment-dwim-2)
 
-;; Setq's
 (setq company-idle-delay 0)
 (setq company-minimum-prefix-length 2)
+
+;; Cursor fancyness
 (setq-default cursor-type 'bar)
+(setq-default cursor-in-non-selected-windows 'hollow-box)
+
 ;; (setq alchemist-project-compile-when-needed t)
 (setq projectile-completion-system 'grizzl)
 (setq-default indent-tabs-mode nil)
