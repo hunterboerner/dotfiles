@@ -28,15 +28,14 @@
       (cursor-type . box)
       (cursor-color . "Red")
       (internal-border-width . 0)
-      (fringe)
-      (left-fringe . 1)
-      (right-fringe . 1))))
+      (fringe))))
  '(ede-project-directories (quote ("/Users/theron/code/hunterboerner/cpp-class")))
  '(editorconfig-mode t)
  '(fci-rule-color "#202325")
  '(fill-column 80)
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-company-mode t)
+ '(global-hl-line-mode t)
  '(global-prettify-symbols-mode t)
  '(haskell-tags-on-save t)
  '(helm-quick-update t)
@@ -50,7 +49,7 @@
  '(ns-tool-bar-size-mode nil t)
  '(package-selected-packages
    (quote
-    (ac-js2 ace-jump-mode ag alchemist base16-theme cider clojure-mode coffee-mode color-theme color-theme-sanityinc-tomorrow comment-dwim-2 company-auctex company-c-headers company-ghc company-tern dash-functional diff-hl disaster discover-js2-refactor editorconfig elixir-mode elixir-yasnippets ember-yasnippets emmet-mode emr erlang evil-nerd-commenter exec-path-from-shell expand-region fish-mode flatland-theme flx-ido flycheck-pyflakes flycheck-rust flymake-easy flymake-elixir ghc gist go-mode grizzl haskell-mode helm-ag helm-flx helm-gtags highlight-chars highlight-indentation hlinum ibuffer-vc impatient-mode js2-refactor json-mode json-reformat list-utils llvm-mode magit magit-popup makey markdown-mode material-theme multiple-cursors neotree ninja-mode nlinum pallet paradox paredit pcache popup projectile protobuf-mode purescript-mode python-mode queue racer rainbow-delimiters redshank robe rust-mode rvm s sass-mode scss-mode shm ember-mode zenburn-theme yasnippet yard-mode yaml-mode yafolding with-editor web-mode volatile-highlights undo-tree tuareg toml-mode tern spacegray-theme snippet smooth-scrolling smex smartparens skewer-mode shut-up)))
+    (ac-js2 ace-jump-mode ag alchemist base16-theme cider clojure-mode coffee-mode color-theme color-theme-sanityinc-tomorrow comment-dwim-2 company-auctex company-c-headers company-ghc company-tern dash-functional diff-hl disaster discover-js2-refactor editorconfig elixir-mode elixir-yasnippets ember-yasnippets emmet-mode emr erlang evil-nerd-commenter exec-path-from-shell expand-region fish-mode flatland-theme flx-ido flycheck-pyflakes flymake-easy flymake-elixir ghc gist go-mode grizzl haskell-mode helm-ag helm-flx helm-gtags highlight-chars highlight-indentation hlinum ibuffer-vc impatient-mode js2-refactor json-mode json-reformat list-utils llvm-mode magit magit-popup makey markdown-mode material-theme multiple-cursors neotree ninja-mode nlinum pallet paradox paredit pcache popup projectile protobuf-mode purescript-mode python-mode queue racer rainbow-delimiters redshank robe rust-mode rvm s sass-mode scss-mode shm ember-mode zenburn-theme yasnippet yard-mode yaml-mode yafolding with-editor web-mode volatile-highlights undo-tree tuareg toml-mode tern spacegray-theme snippet smooth-scrolling smex smartparens skewer-mode shut-up)))
  '(paradox-github-token t)
  '(py-shell-name "ipython")
  '(safe-local-variable-values

@@ -294,7 +294,7 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-;") 'comment-dwim-2)
 
-(setq company-idle-delay 0)
+(setq company-idle-delay 0.3)
 (setq company-minimum-prefix-length 2)
 
 ;; Cursor fancyness
@@ -426,6 +426,9 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#3F3F3F" :foreground "#DCDCCC" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "nil" :family "Source Code Pro"))))
  '(elixir-ignored-var-face ((t (:foreground "dark gray"))))
+ '(mode-line ((t (:background "#2B2B2B" :foreground "#8FB28F" :box -1 :strike-through nil :underline nil :slant normal :weight normal :width normal))))
+ '(mode-line-highlight ((t (:box (:line-width 2 :color "grey40")))))
+ '(mode-line-inactive ((t (:inherit mode-line :background "#383838" :foreground "#5F7F5F" :box (:line-width -1 :color "#383838") :strike-through nil :underline nil :slant normal :weight normal :width normal))))
  '(font-lock-keyword-face ((t (:foreground "#F0DFAF" :weight normal))))
  '(linum-highlight-face ((t (:inherit default :weight bold)))))
 
