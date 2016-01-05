@@ -301,6 +301,7 @@
 ;; Cursor fancyness
 (setq-default cursor-type 'bar)
 (setq-default cursor-in-non-selected-windows 'hollow-box)
+(set-cursor-color "red")
 
 ;; (setq alchemist-project-compile-when-needed t)
 (setq projectile-completion-system 'grizzl)
