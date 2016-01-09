@@ -22,7 +22,6 @@ emacs/.emacs.d/session.*
 emacs/.emacs.d/elpa
 emacs/.emacs.d/.mc*
 emacs/.emacs.d/projectile-bookmarks.eld
-emacs/.emacs.d/abbrev_defs
 emacs/.emacs.d/flycheck-*
 emacs/.emacs.d/persp-confs/
 emacs/.emacs.d/eshell

@@ -9,6 +9,7 @@
 	indent = 4
 [alias]
 	tree = !sh -c \"/Users/theronb/code/tmp/git-status-tree/bin/git-status-tree\"
+	appraise = !/Users/theron/code/gopath//bin/git-appraise
 [hub]
 	protocol = ssh
 [color]
