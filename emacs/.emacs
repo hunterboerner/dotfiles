@@ -280,10 +280,10 @@
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 
 ;; (set (make-local-variable 'whitespace-line-column) 80)
-(set (make-local-variable 'whitespace-line-column) 99)
-(add-hook 'after-change-major-mode-hook
-          '(lambda () (when (eq major-mode 'rust-mode)
-                        (setq whitespace-line-column 99))))
+(setq whitespace-line-column 99)
+;; (add-hook 'after-change-major-mode-hook
+;;           '(lambda () (when (eq major-mode 'rust-mode)
+;;                         (setq whitespace-line-column 99))))
 
 ;; Enable things
 (yas-global-mode 1)
