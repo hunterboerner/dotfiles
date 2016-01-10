@@ -17,11 +17,9 @@
 
 (require 'ember-mode)
 (require 'ember-yasnippets)
-(require 'ido)
 (require 'js2-refactor)
 (require 'elixir-mode)
 (require 'alchemist)
-(require 'smex)
 (require 'magit)
 (require 'volatile-highlights)
 (require 'yasnippet)
@@ -262,7 +260,6 @@
 (add-hook 'haskell-mode-hook 'structured-haskell-mode)
 
 (add-hook 'web-mode-hook #'(lambda () (yas-activate-extra-mode 'handlebars-mode)))
-(setq-default yas-prompt-functions '(yas-ido-prompt yas-dropdown-prompt))
 
 ;; (require 'tern)
 ;; (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
@@ -297,7 +294,6 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C--") 'er/contract-region)
 (global-set-key (kbd "s-r") 'emr-show-refactor-menu)
-(global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-;") 'comment-dwim-2)
 
 (setq company-idle-delay 0.3)
@@ -402,7 +398,7 @@ When using Homebrew, install it using \"brew install trash\"."
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (helm-flx yafolding racer ace-jump-mode nlinum editorconfig expand-region go-mode haml-mode rust-mode yaml-mode company-auctex auctex llvm-mode ag hlinum alchemist async cask cider clojure-mode company dash diff-hl elixir-mode exec-path-from-shell flycheck gh ghc git-commit haskell-mode helm helm-ag helm-core inf-ruby js2-mode js2-refactor json-reformat magit magit-popup markdown-mode material-theme neotree projectile python-mode robe s smartparens web-mode with-editor yasnippet zenburn-theme undo-tree ninja-mode disaster company-c-headers helm-gtags paradox toml-mode json-mode tuareg caml erlang base16-theme fish-mode flycheck-pyflakes shm company-ghc gist purescript-mode protobuf-mode flatland-theme ibuffer-vc coffee-mode yard-mode spacegray-theme list-utils makey multiple-cursors paredit popup queue redshank skewer-mode shut-up epl git commander f pallet volatile-highlights snippet scss-mode sass-mode rvm rainbow-delimiters impatient-mode highlight-indentation highlight-chars grizzl flymake-elixir flymake-easy flycheck-rust flx-ido evil-nerd-commenter emr emmet-mode ember-yasnippets elixir-yasnippets discover-js2-refactor company-tern color-theme ac-js2)))
+    (helm-flx yafolding racer ace-jump-mode nlinum editorconfig expand-region go-mode haml-mode rust-mode yaml-mode company-auctex auctex llvm-mode ag hlinum alchemist async cask cider clojure-mode company dash diff-hl elixir-mode exec-path-from-shell flycheck gh ghc git-commit haskell-mode helm helm-ag helm-core inf-ruby js2-mode js2-refactor json-reformat magit magit-popup markdown-mode material-theme neotree projectile python-mode robe s smartparens web-mode with-editor yasnippet zenburn-theme undo-tree ninja-mode disaster company-c-headers helm-gtags paradox toml-mode json-mode tuareg caml erlang base16-theme fish-mode flycheck-pyflakes shm company-ghc gist purescript-mode protobuf-mode flatland-theme ibuffer-vc coffee-mode yard-mode spacegray-theme list-utils makey multiple-cursors paredit popup queue redshank skewer-mode shut-up epl git commander f pallet volatile-highlights snippet scss-mode sass-mode rvm rainbow-delimiters impatient-mode highlight-indentation highlight-chars grizzl flymake-elixir flymake-easy flycheck-rust evil-nerd-commenter emr emmet-mode ember-yasnippets elixir-yasnippets discover-js2-refactor company-tern color-theme ac-js2)))
  '(paradox-github-token t)
  '(py-shell-name "ipython")
  '(safe-local-variable-values
