@@ -42,6 +42,9 @@
 (require 'multiple-cursors)
 (require 'racer)
 (require 'ace-jump-mode)
+(require 'edit-server)
+
+(edit-server-start)
 
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
