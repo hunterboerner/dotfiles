@@ -84,6 +84,11 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
+(defadvice text-scale-increase (around all-buffers (arg) activate)
+  (dolist (buffer (buffer-list))
+    (with-current-buffer buffer
+      ad-do-it)))
+
 (global-eldoc-mode -1)
 (global-set-key (kbd "C-x g") 'magit-status)
 (setq projectile-indexing-method 'alien)
