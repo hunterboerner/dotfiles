@@ -308,9 +308,10 @@
 (setq company-minimum-prefix-length 2)
 
 ;; Cursor fancyness
-(setq-default cursor-type 'bar)
+(setq-default cursor-type '(bar . 1))
 (setq-default cursor-in-non-selected-windows 'hollow-box)
-(set-cursor-color "red")
+(blink-cursor-mode 0)
+(set-cursor-color "white")
 
 ;; (setq alchemist-project-compile-when-needed t)
 (setq projectile-completion-system 'grizzl)
