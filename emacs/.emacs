@@ -43,6 +43,9 @@
 (require 'racer)
 (require 'ace-jump-mode)
 (require 'edit-server)
+(require 'auto-install)
+
+(load-file "./.emacs.d/auto-install/mac-print-mode.el")
 
 (edit-server-start)
 
