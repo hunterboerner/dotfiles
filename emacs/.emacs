@@ -47,8 +47,6 @@
 
 (load-file "~/.emacs.d/auto-install/mac-print-mode.el")
 
-(edit-server-start)
-
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
@@ -457,6 +455,9 @@ When using Homebrew, install it using \"brew install trash\"."
  '(mode-line-highlight ((t (:box (:line-width 2 :color "grey40")))))
  '(mode-line-inactive ((t (:inherit mode-line :background "#383838" :foreground "#5F7F5F" :box (:line-width -1 :color "#383838") :strike-through nil :underline nil :slant normal :weight normal :width normal)))))
 
+;; Start the servers...
+; (server-start)
+; (edit-server-start)
+
 (provide '.emacs)
 ;;; .emacs ends here
-(server-start)
