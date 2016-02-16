@@ -7,6 +7,7 @@
 (depends-on "alchemist")
 (depends-on "async")
 (depends-on "auctex")
+(depends-on "auto-install")
 (depends-on "base16-theme")
 (depends-on "caml")
 (depends-on "cask")
