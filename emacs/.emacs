@@ -397,7 +397,6 @@ When using Homebrew, install it using \"brew install trash\"."
  '(fill-column 80)
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-company-mode t)
- '(global-prettify-symbols-mode t)
  '(haskell-tags-on-save t)
  '(helm-quick-update t)
  '(inhibit-startup-screen t)
@@ -413,7 +412,8 @@ When using Homebrew, install it using \"brew install trash\"."
  '(py-shell-name "ipython")
  '(safe-local-variable-values
    (quote
-    ((flycheck-clang-language-standard . c++14)
+    ((TeX-parse-self . t)
+     (flycheck-clang-language-standard . c++14)
      (erlang-indent-level . 2)
      (py-which-shell . "python3"))))
  '(scroll-bar-mode nil)
