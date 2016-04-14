@@ -118,6 +118,7 @@
 (depends-on "smooth-scrolling")
 (depends-on "snippet")
 (depends-on "spacegray-theme")
+(depends-on "spinner")
 (depends-on "tern")
 (depends-on "toml-mode")
 (depends-on "tuareg")
