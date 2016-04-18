@@ -8,6 +8,7 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+(setq gc-cons-threshold 20000000)
 (package-initialize)
 
 (require 'cask "~/.cask/cask.el")
@@ -357,6 +358,8 @@
  ;; Non-nil means display source file containing the main routine at startup
  gdb-show-main t
 )
+
+(setq redisplay-dont-pause t)
 
 (setq delete-by-moving-to-trash t)
 
