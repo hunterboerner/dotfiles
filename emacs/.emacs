@@ -462,3 +462,4 @@ When using Homebrew, install it using \"brew install trash\"."
 
 (provide '.emacs)
 ;;; .emacs ends here
+(put 'narrow-to-region 'disabled nil)
