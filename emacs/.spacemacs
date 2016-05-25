@@ -23,13 +23,16 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-enable-sort-by-usage t)
      better-defaults
      emacs-lisp
      git
      github
      markdown
      elixir
+     osx
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -243,7 +246,6 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (setq evil-emacs-state-cursor '("chartreuse3" (bar . 2)))
   )
 
 (defun dotspacemacs/user-config ()
@@ -253,6 +255,10 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (setq powerline-default-separator 'bar)
+  (spaceline-compile)
+  ;; (setq evil-emacs-state-cursor '("chartreuse3" (bar . 2)))
+  (setq-default cursor-type '(bar . 2))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
