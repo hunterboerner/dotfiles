@@ -34,12 +34,14 @@ values."
      elixir
      osx
      semantic
+     javascript
+     html
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
-     ;; syntax-checking
+     syntax-checking
      (version-control :variables
                       version-control-diff-tool 'diff-hl)
      )
@@ -269,6 +271,7 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(mode-require-final-newline t)
  '(mouse-wheel-scroll-amount (quote (1 ((shift) . 1) ((control)))))
  '(scroll-conservatively 1))
 (custom-set-faces
