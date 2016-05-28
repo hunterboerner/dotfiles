@@ -41,7 +41,8 @@ values."
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
-     syntax-checking
+     (syntax-checking :variables
+                      syntax-checking-enable-tooltips nil)
      (version-control :variables
                       version-control-diff-tool 'diff-hl)
      )
@@ -49,7 +50,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(column-enforce-mode)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -239,7 +240,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'changed
    ))
 
 (defun dotspacemacs/user-init ()
@@ -262,6 +263,8 @@ you should place your code here."
   (spaceline-compile)
   (setq evil-emacs-state-cursor '("chartreuse3" (bar . 2)))
   (setq-default cursor-type '(bar . 2))
+  (add-hook 'prog-mode-hook 'column-enforce-mode)
+  (setq column-enforce-column 99)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -271,9 +274,12 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(indent-guide-global-mode t)
+ '(indent-guide-recursive t)
  '(mode-require-final-newline t)
  '(mouse-wheel-scroll-amount (quote (1 ((shift) . 1) ((control)))))
- '(scroll-conservatively 1))
+ '(scroll-conservatively 1)
+ '(whitespace-line-column 99))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
