@@ -265,6 +265,9 @@ you should place your code here."
   (setq-default cursor-type '(bar . 2))
   (add-hook 'prog-mode-hook 'column-enforce-mode)
   (setq column-enforce-column 99)
+  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
