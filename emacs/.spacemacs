@@ -268,6 +268,7 @@ you should place your code here."
   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+  (delete-selection-mode 1)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
