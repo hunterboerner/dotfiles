@@ -1,6 +1,6 @@
 set fish_color_command green
 set fish_color_param white
-set -x PATH $PATH $HOME/.rvm/bin $HOME/bin $HOME/google-cloud-sdk/bin
+set -x PATH $PATH $HOME/.rvm/bin $HOME/bin $HOME/google-cloud-sdk/bin $HOME/.local/bin
 set -g fish_user_abbreviations ''
 
 alias git=hub

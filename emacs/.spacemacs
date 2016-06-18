@@ -36,6 +36,8 @@ values."
      semantic
      javascript
      html
+     haskell
+     yaml
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -50,7 +52,12 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(column-enforce-mode editorconfig)
+   dotspacemacs-additional-packages
+   '(
+     column-enforce-mode
+     editorconfig
+     disaster
+     )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
