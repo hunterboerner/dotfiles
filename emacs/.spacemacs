@@ -38,6 +38,7 @@ values."
      html
      haskell
      yaml
+     latex
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -285,10 +286,13 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(TeX-engine (quote xetex))
+ '(auctex-latexmk-inherit-TeX-PDF-mode nil)
  '(indent-guide-global-mode t)
  '(indent-guide-recursive t)
  '(mode-require-final-newline t)
  '(mouse-wheel-scroll-amount (quote (1 ((shift) . 1) ((control)))))
+ '(safe-local-variable-values (quote ((TeX-engine . xetex))))
  '(scroll-conservatively 1)
  '(whitespace-line-column 99))
 (custom-set-faces
