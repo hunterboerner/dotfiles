@@ -58,6 +58,7 @@ values."
      column-enforce-mode
      editorconfig
      disaster
+     auctex-latexmk
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -269,7 +270,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq powerline-default-separator 'bar)
   (spaceline-compile)
-  (setq evil-emacs-state-cursor '("chartreuse3" (bar . 2)))
+  (setq evil-emacs-state-cursor '("SkyBlue" (bar . 2)))
   (setq-default cursor-type '(bar . 2))
   (add-hook 'prog-mode-hook 'column-enforce-mode)
   (setq column-enforce-column 99)
@@ -288,6 +289,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(TeX-engine (quote xetex))
  '(auctex-latexmk-inherit-TeX-PDF-mode nil)
+ '(cursor-in-non-selected-windows (quote hollow))
  '(indent-guide-global-mode t)
  '(indent-guide-recursive t)
  '(mode-require-final-newline t)
