@@ -58,6 +58,10 @@ values."
      column-enforce-mode
      editorconfig
      disaster
+     (es6-snippets :location (recipe
+                              :fetcher github
+                              :repo "hunterboerner/es6-snippets"
+                              :files ("*.el" "snippets")))
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -286,7 +290,7 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(TeX-engine 'xetex)
+ '(TeX-engine (quote xetex))
  '(auctex-latexmk-inherit-TeX-PDF-mode nil)
  '(cursor-in-non-selected-windows (quote hollow))
  '(indent-guide-global-mode t)
@@ -295,6 +299,7 @@ you should place your code here."
  '(mouse-wheel-scroll-amount (quote (1 ((shift) . 1) ((control)))))
  '(safe-local-variable-values (quote ((TeX-engine . xetex))))
  '(scroll-conservatively 1)
+ '(web-mode-comment-style 2)
  '(whitespace-line-column 99))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
