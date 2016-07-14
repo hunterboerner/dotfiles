@@ -280,6 +280,7 @@ you should place your code here."
   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+  (editorconfig-mode 1)
   (delete-selection-mode 1)
   )
 
