@@ -282,6 +282,12 @@ you should place your code here."
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
   (editorconfig-mode 1)
   (delete-selection-mode 1)
+  (eval-after-load "alchemist"
+    '(defun alchemist-company--wait-for-doc-buffer ()
+       (setf num 50)
+       (while (and (not alchemist-company-doc-lookup-done)
+                   (> (decf num) 1))
+         (sit-for 0.01))))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -292,7 +298,10 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(TeX-engine (quote xetex))
- '(auctex-latexmk-inherit-TeX-PDF-mode nil)
+ '(auctex-latexmk-inherit-TeX-PDF-mode nil t)
+ '(company-frontends
+   (quote
+    (company-pseudo-tooltip-frontend company-echo-metadata-frontend)))
  '(cursor-in-non-selected-windows (quote hollow))
  '(indent-guide-global-mode t)
  '(indent-guide-recursive t)
