@@ -39,6 +39,7 @@ values."
      haskell
      yaml
      latex
+     ess
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -262,6 +263,7 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+
   )
 
 (defun dotspacemacs/user-config ()
@@ -288,6 +290,32 @@ you should place your code here."
        (while (and (not alchemist-company-doc-lookup-done)
                    (> (decf num) 1))
          (sit-for 0.01))))
+
+  (setq ess-swv-processor 'knitr)
+  (setq ess-swv-plug-into-AUCTeX-p t)
+  (defun ess-swv-add-TeX-commands-custom ()
+    "Add commands to AUCTeX's \\[TeX-command-list]."
+    (unless (and (featurep 'tex-site) (featurep 'tex))
+      (error "AUCTeX does not seem to be loaded"))
+    (add-to-list 'TeX-command-list
+                 '("Knit" "Rscript -e \"library(knitr); knit('%t')\""
+                   TeX-run-command nil (latex-mode) :help
+                   "Run Knitr") t)
+    (add-to-list 'TeX-command-list
+                 '("LaTeXKnit" "%l %(mode) %s"
+                   TeX-run-TeX nil (latex-mode) :help
+                   "Run LaTeX after Knit") t)
+    (setq TeX-command-default "Knit")
+    (mapc (lambda (suffix)
+            (add-to-list 'TeX-file-extensions suffix))
+          '("nw" "Snw" "Rnw")))
+
+  ;; (defun ess-swv-remove-TeX-commands-custom (x)
+  ;;   "Helper function: check if car of X is one of the Knitr strings"
+  ;;   (let ((swv-cmds '("Knit" "LaTeXKnit")))
+  ;;     (unless (member (car x) swv-cmds) x)))
+
+  (advice-add 'ess-swv-add-TeX-commands :after #'ess-swv-add-TeX-commands-custom)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -297,8 +325,8 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(TeX-engine (quote xetex))
- '(auctex-latexmk-inherit-TeX-PDF-mode nil t)
+ ;'(TeX-engine (quote xetex))
+ '(auctex-latexmk-inherit-TeX-PDF-mode nil)
  '(company-frontends
    (quote
     (company-pseudo-tooltip-frontend company-echo-metadata-frontend)))
@@ -307,7 +335,13 @@ you should place your code here."
  '(indent-guide-recursive t)
  '(mode-require-final-newline t)
  '(mouse-wheel-scroll-amount (quote (1 ((shift) . 1) ((control)))))
- '(safe-local-variable-values (quote ((TeX-engine . xetex))))
+ '(neo-theme (quote nerd))
+ '(paradox-github-token t)
+ '(safe-local-variable-values
+   (quote
+    ((outline-minor-mode)
+     (whitespace-style face tabs spaces trailing lines space-before-tab::space newline indentation::space empty space-after-tab::space space-mark tab-mark newline-mark)
+     (TeX-engine . xetex))))
  '(scroll-conservatively 1)
  '(web-mode-comment-style 2)
  '(whitespace-line-column 99))
