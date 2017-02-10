@@ -32,6 +32,8 @@ values."
      github
      markdown
      elixir
+     erlang
+     elm
      osx
      semantic
      javascript
@@ -129,11 +131,18 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   ;; dotspacemacs-default-font '("Source Code Pro"
+   ;;                             :size 13
+   ;;                             :weight normal
+   ;;                             :width normal
+   ;;                             :powerline-scale 1.1)
+   dotspacemacs-default-font '("Fira Code"
                                :size 13
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
+   ;; (set-face-attribute 'default nil :font "Fira Code Retina-14")
+
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
@@ -325,14 +334,14 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ;'(TeX-engine (quote xetex))
- '(auctex-latexmk-inherit-TeX-PDF-mode nil)
+ '(auctex-latexmk-inherit-TeX-PDF-mode nil t)
  '(company-frontends
    (quote
     (company-pseudo-tooltip-frontend company-echo-metadata-frontend)))
  '(cursor-in-non-selected-windows (quote hollow))
  '(indent-guide-global-mode t)
  '(indent-guide-recursive t)
+ '(mac-auto-operator-composition-mode t)
  '(mode-require-final-newline t)
  '(mouse-wheel-scroll-amount (quote (1 ((shift) . 1) ((control)))))
  '(neo-theme (quote nerd))
