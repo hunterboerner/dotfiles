@@ -55,6 +55,7 @@ values."
      yaml
      latex
      ess
+     nlinum
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -74,6 +75,7 @@ values."
      column-enforce-mode
      editorconfig
      disaster
+     ag
      (es6-snippets :location (recipe
                               :fetcher github
                               :repo "hunterboerner/es6-snippets"
@@ -159,16 +161,16 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
-                               :weight normal
-                               :width normal
-                               :powerline-scale 1.1)
-   ;; dotspacemacs-default-font '("Fira Code"
+   ;; dotspacemacs-default-font '("Source Code Pro"
    ;;                             :size 13
    ;;                             :weight normal
    ;;                             :width normal
    ;;                             :powerline-scale 1.1)
+   dotspacemacs-default-font '("Fira Code"
+                               :size 13
+                               :weight normal
+                               :width normal
+                               :powerline-scale 1.1)
    ;; (set-face-attribute 'default nil :font "Fira Code Retina-14")
 
    ;; The leader key
@@ -176,6 +178,11 @@ values."
    ;; The leader key accessible in `emacs state' and `insert state'
    ;; (default "M-m")
    dotspacemacs-emacs-leader-key "M-m"
+   ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
+   ;; (default "SPC")
+   dotspacemacs-emacs-command-key "SPC"
+   ;; The key used for Vim Ex commands (default ":")
+   dotspacemacs-ex-command-key ":"
    ;; Major mode leader key is a shortcut key which is the equivalent of
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
    dotspacemacs-major-mode-leader-key ","
@@ -270,7 +277,7 @@ values."
    ;; If non nil show the color guide hint for transient state keys. (default t)
    dotspacemacs-show-transient-state-color-guide t
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
-   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-unicode-symbols nil
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
@@ -329,7 +336,6 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-
   )
 
 (defun dotspacemacs/user-config ()
@@ -341,6 +347,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ;; (setq powerline-default-separator 'bar)
   (spaceline-compile)
+  (spacemacs/toggle-truncate-lines-on)
   (setq evil-emacs-state-cursor '("SkyBlue" (bar . 2)))
   (setq-default cursor-type '(bar . 2))
   (add-hook 'prog-mode-hook 'column-enforce-mode)
@@ -382,6 +389,7 @@ you should place your code here."
   ;;     (unless (member (car x) swv-cmds) x)))
 
   (advice-add 'ess-swv-add-TeX-commands :after #'ess-swv-add-TeX-commands-custom)
+  (show-smartparens-global-mode -1)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -396,14 +404,13 @@ you should place your code here."
    (quote
     (company-pseudo-tooltip-frontend company-echo-metadata-frontend)))
  '(cursor-in-non-selected-windows (quote hollow))
- '(indent-guide-global-mode t)
- '(indent-guide-recursive t)
+ '(evil-want-Y-yank-to-eol nil)
  '(mac-auto-operator-composition-mode t)
  '(mode-require-final-newline t)
  '(neo-theme (quote nerd))
  '(package-selected-packages
    (quote
-    (markdown-mode multiple-cursors projectile diminish avy packed auctex ghc haskell-mode company ess julia-mode highlight smartparens f evil flycheck yasnippet helm helm-core magit magit-popup git-commit with-editor async gh hydra js2-mode dash s winum unfill fuzzy flycheck-credo auctex-latexmk zenburn-theme yaml-mode ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit stickyfunc-enhance srefactor spacemacs-theme spaceline solarized-theme smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restart-emacs rainbow-delimiters quelpa pug-mode popwin persp-mode pcre2el pbcopy paradox osx-trash osx-dictionary orgit org-plus-contrib org-bullets open-junk-file ob-elixir neotree mwim move-text monokai-theme mmm-mode markdown-toc magit-gitflow magit-gh-pulls macrostep lorem-ipsum livid-mode linum-relative link-hint less-css-mode launchctl json-mode js2-refactor js-doc intero info+ indent-guide ido-vertical-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-hoogle helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gist gh-md flycheck-pos-tip flycheck-mix flycheck-haskell flycheck-elm flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu ess-smart-equals ess-R-object-popup ess-R-data-view es6-snippets erlang emmet-mode elm-mode elisp-slime-nav editorconfig dumb-jump disaster diff-hl company-web company-tern company-statistics company-ghci company-ghc company-cabal company-auctex column-enforce-mode coffee-mode cmm-mode clean-aindent-mode bracketed-paste auto-yasnippet auto-highlight-symbol auto-compile alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (dash nlinum-relative nlinum osx-trash ag markdown-mode multiple-cursors projectile diminish avy packed auctex ghc haskell-mode company ess julia-mode highlight smartparens f evil flycheck yasnippet helm helm-core magit magit-popup git-commit with-editor async gh hydra js2-mode s winum unfill fuzzy flycheck-credo auctex-latexmk zenburn-theme yaml-mode ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit stickyfunc-enhance srefactor spacemacs-theme spaceline solarized-theme smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restart-emacs rainbow-delimiters quelpa pug-mode popwin persp-mode pcre2el pbcopy paradox osx-dictionary orgit org-plus-contrib org-bullets open-junk-file ob-elixir neotree mwim move-text monokai-theme mmm-mode markdown-toc magit-gitflow magit-gh-pulls macrostep lorem-ipsum livid-mode linum-relative link-hint less-css-mode launchctl json-mode js2-refactor js-doc intero info+ indent-guide ido-vertical-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-hoogle helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gist gh-md flycheck-pos-tip flycheck-mix flycheck-haskell flycheck-elm flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu ess-smart-equals ess-R-object-popup ess-R-data-view es6-snippets erlang emmet-mode elm-mode elisp-slime-nav editorconfig dumb-jump disaster diff-hl company-web company-tern company-statistics company-ghci company-ghc company-cabal company-auctex column-enforce-mode coffee-mode cmm-mode clean-aindent-mode bracketed-paste auto-yasnippet auto-highlight-symbol auto-compile alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
  '(paradox-github-token t)
  '(safe-local-variable-values
    (quote
@@ -417,8 +424,7 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-
- ;; XXX: This was changed
- ;; '(default ((t (:foreground "#DCDCCC" :background "#3F3F3F"))))
+ '(default ((t (:foreground "#DCDCCC" :background "#3F3F3F"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
+ '(hl-line ((t (:background "color-236")))))
