@@ -37,8 +37,9 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      (auto-completion :variables
-                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t)
+     helm
      better-defaults
      emacs-lisp
      git
@@ -75,14 +76,15 @@ values."
      column-enforce-mode
      editorconfig
      disaster
-     ag
      (es6-snippets :location (recipe
                               :fetcher github
                               :repo "hunterboerner/es6-snippets"
                               :files ("*.el" "snippets")))
      )
+   ;; A list of packages that cannot be updated.
+   dotspacemacs-frozen-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(scss-mode)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -347,7 +349,6 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ;; (setq powerline-default-separator 'bar)
   (spaceline-compile)
-  (spacemacs/toggle-truncate-lines-on)
   (setq evil-emacs-state-cursor '("SkyBlue" (bar . 2)))
   (setq-default cursor-type '(bar . 2))
   (add-hook 'prog-mode-hook 'column-enforce-mode)
@@ -426,5 +427,4 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(default ((t (:foreground "#DCDCCC" :background "#3F3F3F"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
- '(hl-line ((t (:background "color-236")))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
