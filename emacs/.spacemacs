@@ -409,6 +409,7 @@ you should place your code here."
     (company-pseudo-tooltip-frontend company-echo-metadata-frontend)))
  '(cursor-in-non-selected-windows (quote hollow))
  '(evil-want-Y-yank-to-eol nil)
+ '(git-commit-summary-max-length 50)
  '(mac-auto-operator-composition-mode t)
  '(mode-require-final-newline t)
  '(neo-theme (quote nerd))
