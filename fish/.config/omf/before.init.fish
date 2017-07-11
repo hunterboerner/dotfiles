@@ -1,5 +1,6 @@
 set fish_color_command green
 set fish_color_param white
+set fish_pager_color_progress cyan
 set -x PATH $PATH $HOME/.rvm/bin $HOME/bin $HOME/google-cloud-sdk/bin $HOME/.local/bin
 set -g fish_user_abbreviations ''
 
