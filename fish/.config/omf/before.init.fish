@@ -27,5 +27,4 @@ abbr -a zz 'fasd_cd -d -i'
 abbr -a c 'clear'
 abbr -a gup 'rvm ruby-2.1.1 do git up'
 
-eval (opam config env)
 eval (direnv hook fish)
