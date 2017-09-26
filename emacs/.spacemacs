@@ -54,7 +54,9 @@ values."
      semantic
      javascript
      html
-     haskell
+     (haskell :variables
+              ;; haskell-completion-backend 'intero)
+              haskell-enable-hindent-style "fundamental")
      yaml
      latex
      ess
@@ -154,8 +156,9 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(zenburn
-                         spacemacs-dark
+   dotspacemacs-themes '(spacemacs-dark
+                         zenburn
+                         ;;spacemacs-dark
                          spacemacs-light
                          solarized-light
                          isolarized-dark
@@ -392,7 +395,7 @@ you should place your code here."
   ;;     (unless (member (car x) swv-cmds) x)))
 
   (advice-add 'ess-swv-add-TeX-commands :after #'ess-swv-add-TeX-commands-custom)
-  (show-smartparens-global-mode -1)
+;;  (show-smartparens-global-mode -1)
   (add-hook 'git-commit-mode-hook (lambda ()
                                     (setq fill-column 72)
                                     (git-commit-turn-on-auto-fill)))
@@ -412,6 +415,7 @@ you should place your code here."
  '(cursor-in-non-selected-windows (quote hollow))
  '(evil-want-Y-yank-to-eol nil)
  '(git-commit-summary-max-length 50)
+ '(intero-package-version "0.1.23")
  '(mac-auto-operator-composition-mode t)
  '(mode-require-final-newline t)
  '(neo-theme (quote nerd))
@@ -426,11 +430,17 @@ you should place your code here."
      (TeX-engine . xetex))))
  '(web-mode-comment-style 2)
  '(whitespace-line-column 99))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(default ((t (:foreground "#DCDCCC" :background "#3F3F3F"))))
+;;  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+;;  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:foreground "#DCDCCC" :background "#3F3F3F"))))
- '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+ )
