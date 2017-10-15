@@ -400,6 +400,9 @@ you should place your code here."
   (add-hook 'git-commit-mode-hook (lambda ()
                                     (setq fill-column 72)
                                     (git-commit-turn-on-auto-fill)))
+  (define-key company-active-map (kbd "C-n") nil)
+  (define-key company-active-map (kbd "C-p") nil)
+  (define-key company-active-map (kbd "C-f") nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
