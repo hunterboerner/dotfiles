@@ -403,6 +403,13 @@ you should place your code here."
   (define-key company-active-map (kbd "C-n") nil)
   (define-key company-active-map (kbd "C-p") nil)
   (define-key company-active-map (kbd "C-f") nil)
+
+  ;; use Skim as default pdf viewer
+  ;; Skim's displayline is used for forward search (from .tex to .pdf)
+  ;; option -b highlights the current line; option -g opens Skim in the background
+  (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
+  (setq TeX-view-program-list
+        '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b")))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
