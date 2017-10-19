@@ -400,17 +400,19 @@ you should place your code here."
   (add-hook 'git-commit-mode-hook (lambda ()
                                     (setq fill-column 72)
                                     (git-commit-turn-on-auto-fill)))
-  (define-key company-active-map (kbd "C-n") nil)
-  (define-key company-active-map (kbd "C-p") nil)
-  (define-key company-active-map (kbd "C-f") nil)
+  (with-eval-after-load "company"
+    (define-key company-active-map (kbd "C-n") nil)
+    (define-key company-active-map (kbd "C-p") nil)
+    (define-key company-active-map (kbd "C-f") nil))
 
-  ;; use Skim as default pdf viewer
-  ;; Skim's displayline is used for forward search (from .tex to .pdf)
-  ;; option -b highlights the current line; option -g opens Skim in the background
-  (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
-  (setq TeX-view-program-list
-        '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b")))
-  )
+  (with-eval-after-load "tex"
+    ;; use Skim as default pdf viewer
+    ;; Skim's displayline is used for forward search (from .tex to .pdf)
+    ;; option -b highlights the current line; option -g opens Skim in the background
+    (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
+    (setq TeX-view-program-list
+          '(("PDF Viewer"
+             "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b")))))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -419,6 +421,7 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(TeX-source-correlate-start-server (quote ask))
  '(auctex-latexmk-inherit-TeX-PDF-mode nil)
  '(company-frontends
    (quote
