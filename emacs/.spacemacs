@@ -400,12 +400,12 @@ you should place your code here."
   (add-hook 'git-commit-mode-hook (lambda ()
                                     (setq fill-column 72)
                                     (git-commit-turn-on-auto-fill)))
-  (with-eval-after-load "company"
+  (with-eval-after-load 'company
     (define-key company-active-map (kbd "C-n") nil)
     (define-key company-active-map (kbd "C-p") nil)
     (define-key company-active-map (kbd "C-f") nil))
 
-  (with-eval-after-load "tex"
+  (with-eval-after-load 'tex
     ;; use Skim as default pdf viewer
     ;; Skim's displayline is used for forward search (from .tex to .pdf)
     ;; option -b highlights the current line; option -g opens Skim in the background
