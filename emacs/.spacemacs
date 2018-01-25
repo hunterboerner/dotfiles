@@ -360,6 +360,7 @@ you should place your code here."
   (setq evil-emacs-state-cursor '("SkyBlue" (bar . 2)))
   (setq-default cursor-type '(bar . 2))
   (add-hook 'prog-mode-hook 'column-enforce-mode)
+  (remove-hook 'LaTeX-mode-hook 'smartparens-mode)
   (setq column-enforce-column 99)
   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
@@ -423,6 +424,9 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(LaTeX-electric-left-right-brace t)
+ '(TeX-electric-math (quote ("\\(" . "\\)")))
+ '(TeX-electric-sub-and-superscript t)
  '(TeX-source-correlate-start-server (quote ask))
  '(auctex-latexmk-inherit-TeX-PDF-mode nil)
  '(company-frontends
