@@ -376,6 +376,7 @@ you should place your code here."
 
   (setq ess-swv-processor 'knitr)
   (setq ess-swv-plug-into-AUCTeX-p t)
+  (add-hook 'LaTeX-mode-hook 'prettify-symbols-mode)
   (defun ess-swv-add-TeX-commands-custom ()
     "Add commands to AUCTeX's \\[TeX-command-list]."
     (unless (and (featurep 'tex-site) (featurep 'tex))
@@ -433,7 +434,9 @@ you should place your code here."
    (quote
     (company-pseudo-tooltip-frontend company-echo-metadata-frontend)))
  '(cursor-in-non-selected-windows (quote hollow))
+ '(disaster-objdump "gobjdump -d -M att -Sl --no-show-raw-insn")
  '(evil-want-Y-yank-to-eol nil)
+ '(gdb-speedbar-auto-raise t)
  '(git-commit-summary-max-length 50)
  '(intero-package-version "0.1.23")
  '(mac-auto-operator-composition-mode t)
