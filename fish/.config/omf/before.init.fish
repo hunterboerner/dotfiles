@@ -26,5 +26,6 @@ abbr -a which-command whence
 abbr -a zz 'fasd_cd -d -i'
 abbr -a c 'clear'
 abbr -a gup 'rvm ruby-2.1.1 do git up'
+abbr -a e 'emacsclient'
 
 eval (direnv hook fish)
