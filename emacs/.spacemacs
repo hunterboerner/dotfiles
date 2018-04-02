@@ -80,7 +80,6 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages
    '(
-     yasnippet-snippets
      column-enforce-mode
      editorconfig
      disaster
