@@ -62,7 +62,6 @@ values."
      yaml
      latex
      ess
-     nlinum
      org
      (c-c++ :variables c-c++-enable-clang-support t)
      ;; (shell :variables
