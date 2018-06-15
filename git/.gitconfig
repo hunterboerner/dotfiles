@@ -22,3 +22,5 @@
 	process = git-lfs filter-process
 [github]
 	user = hunterboerner
+[url "git@github.com:"]
+	insteadOf = "https://github.com/"
