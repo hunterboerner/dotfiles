@@ -529,6 +529,7 @@ This function is called at the very end of Spacemacs initialization."
  '(cursor-in-non-selected-windows (quote hollow))
  '(disaster-objdump "gobjdump -d -M att -Sl --no-show-raw-insn")
  '(evil-want-Y-yank-to-eol nil)
+ '(flycheck-highlighting-mode (quote lines))
  '(gdb-speedbar-auto-raise t)
  '(git-commit-summary-max-length 50)
  '(intero-package-version "0.1.23")
