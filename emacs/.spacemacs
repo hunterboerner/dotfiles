@@ -623,8 +623,8 @@ This function is called at the very end of Spacemacs initialization."
  '(LaTeX-electric-left-right-brace t)
  '(TeX-electric-math (quote ("\\(" . "\\)")))
  '(TeX-electric-sub-and-superscript t)
- '(TeX-source-correlate-start-server (quote ask) t)
- '(auctex-latexmk-inherit-TeX-PDF-mode nil t)
+ '(TeX-source-correlate-start-server (quote ask))
+ '(auctex-latexmk-inherit-TeX-PDF-mode nil)
  '(company-frontends
    (quote
     (company-pseudo-tooltip-frontend company-echo-metadata-frontend)))
@@ -652,6 +652,7 @@ This function is called at the very end of Spacemacs initialization."
      (outline-minor-mode)
      (whitespace-style face tabs spaces trailing lines space-before-tab::space newline indentation::space empty space-after-tab::space space-mark tab-mark newline-mark)
      (TeX-engine . xetex))))
+ '(tramp-default-method "ssh" nil (tramp))
  '(web-mode-comment-style 2)
  '(whitespace-line-column 99))
 (custom-set-faces
