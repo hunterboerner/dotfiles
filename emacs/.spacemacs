@@ -33,68 +33,61 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(react
-     python
-     ruby
-     gtags
-     neotree
-     shell-scripts
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
-     ;; `M-m f e R' (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
-     (auto-completion :variables
-                      auto-completion-enable-help-tooltip t
-                      auto-completion-enable-sort-by-usage t)
-     asm
-     helm
-     better-defaults
-     emacs-lisp
-     git
-     github
-     markdown
-     elixir
-     erlang
-     elm
-     osx
-     semantic
-     javascript
-     coffeescript
-     html
-     (haskell :variables
-              ;; haskell-completion-backend 'intero)
-              haskell-enable-hindent-style "fundamental")
-     yaml
-     latex
-     ess
-     org
-     (c-c++ :variables c-c++-enable-clang-support t)
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; spell-checking
-     ;; (syntax-checking :variables
-     ;;                  syntax-checking-enable-tooltips nil)
-     syntax-checking
-     (version-control :variables
-                      version-control-diff-tool 'diff-hl)
-     )
-
+   '(react python
+           ruby
+           gtags
+           neotree
+           shell-scripts
+           ;; ----------------------------------------------------------------
+           ;; Example of useful layers you may want to use right away.
+           ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
+           ;; `M-m f e R' (Emacs style) to install them.
+           ;; ----------------------------------------------------------------
+           (auto-completion :variables
+             auto-completion-enable-help-tooltip t
+             auto-completion-enable-sort-by-usage t)
+           asm
+           helm
+           better-defaults
+           emacs-lisp
+           git
+           github
+           markdown
+           elixir
+           erlang
+           osx
+           semantic
+           javascript
+           coffeescript
+           html
+           (haskell :variables
+             ;; haskell-completion-backend 'intero)
+             haskell-enable-hindent-style "fundamental")
+           yaml
+           latex
+           ess
+           org
+           (c-c++ :variables c-c++-enable-clang-support t)
+           ;; (shell :variables
+           ;;        shell-default-height 30
+           ;;        shell-default-position 'bottom)
+           (spell-checking :variables enable-flyspell-auto-completion t)
+           ;; (syntax-checking :variables
+           ;;                  syntax-checking-enable-tooltips nil)
+           syntax-checking
+           (colors :variables colors-colorize-identifiers 'variables)
+           (version-control :variables version-control-diff-tool'diff-hl))
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages
-   '(
-     column-enforce-mode
-     editorconfig
-     disaster
-     (es6-snippets :location (recipe
-                              :fetcher github
-                              :repo "hunterboerner/es6-snippets"
-                              :files ("*.el" "snippets")))
-     )
+    '(column-enforce-mode
+       editorconfig
+       disaster
+       (es6-snippets :location (recipe :fetcher github
+                                 :repo "hunterboerner/es6-snippets"
+                                 :files ("*.el" "snippets"))))
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
@@ -590,9 +583,6 @@ This function is called at the very end of Spacemacs initialization."
  '(mac-auto-operator-composition-mode t)
  '(mode-require-final-newline t)
  '(neo-theme (quote nerd))
-  '(package-selected-packages
-     (quote
-       (helm-org-rifle doom-modeline eldoc-eval shrink-path yasnippet-snippets winum org-category-capture ghub let-alist org-mime company-c-headers cmake-mode clang-format yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby insert-shebang fish-mode company-shell powerline spinner skewer-mode simple-httpd json-snatcher json-reformat parent-mode request haml-mode gitignore-mode fringe-helper git-gutter+ git-gutter marshal logito pcache ht flx iedit anzu goto-chg undo-tree ctable web-completion-data dash-functional tern company-quickhelp pos-tip bind-map bind-key elixir-mode pkg-info epl auto-complete popup org-projectile org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot dash nlinum-relative nlinum osx-trash ag markdown-mode multiple-cursors projectile diminish avy packed auctex ghc haskell-mode company ess julia-mode highlight smartparens f evil flycheck yasnippet helm helm-core magit magit-popup git-commit with-editor async gh hydra js2-mode s unfill fuzzy flycheck-credo auctex-latexmk zenburn-theme yaml-mode ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit stickyfunc-enhance srefactor spacemacs-theme spaceline solarized-theme smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restart-emacs rainbow-delimiters quelpa pug-mode popwin persp-mode pcre2el pbcopy paradox osx-dictionary orgit org-plus-contrib org-bullets open-junk-file ob-elixir neotree mwim move-text monokai-theme mmm-mode markdown-toc magit-gitflow magit-gh-pulls macrostep lorem-ipsum livid-mode linum-relative link-hint less-css-mode launchctl json-mode js2-refactor js-doc intero info+ indent-guide ido-vertical-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-hoogle helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gist gh-md flycheck-pos-tip flycheck-mix flycheck-haskell flycheck-elm flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu ess-smart-equals ess-R-object-popup ess-R-data-view es6-snippets erlang emmet-mode elm-mode elisp-slime-nav editorconfig dumb-jump disaster diff-hl company-web company-tern company-statistics company-ghci company-ghc company-cabal company-auctex column-enforce-mode coffee-mode cmm-mode clean-aindent-mode bracketed-paste auto-yasnippet auto-highlight-symbol auto-compile alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
  '(paradox-github-token t)
  '(reftex-ref-style-default-list (quote ("Hyperref" "Default")))
   '(safe-local-variable-values
@@ -606,7 +596,10 @@ This function is called at the very end of Spacemacs initialization."
          (whitespace-style face tabs spaces trailing lines space-before-tab::space newline indentation::space empty space-after-tab::space space-mark tab-mark newline-mark)
          (TeX-engine . xetex))))
  '(web-mode-comment-style 2)
- '(whitespace-line-column nil))
+  '(whitespace-line-column nil)
+   '(package-selected-packages
+      (quote
+        (zenburn-theme yasnippet-snippets yapfify winum web-mode toc-org string-inflection solarized-theme ruby-hash-syntax rspec-mode rjsx-mode pyvenv pytest pip-requirements persp-mode paradox orgit org-mime org-download org-brain neotree nameless mwim magithub ghub+ live-py-mode impatient-mode htmlize hlint-refactor hl-todo highlight-numbers highlight-indentation helm-make helm-company google-translate git-timemachine git-link ggtags flycheck-haskell fish-mode eyebrowse evil-visual-mark-mode evil-surround evil-nerd-commenter evil-matchit evil-magit evil-goggles evil-args eval-sexp-fu es6-snippets erlang editorconfig dumb-jump doom-modeline eldoc-eval diff-hl cython-mode counsel-projectile counsel swiper ivy company-statistics company-anaconda browse-at-remote auto-yasnippet auto-compile anaconda-mode aggressive-indent ace-window ace-link haskell-mode tern company ess julia-mode iedit smartparens elixir-mode flycheck ghub treepy request window-purpose imenu-list rtags helm helm-core yasnippet multiple-cursors avy ht magit markdown-mode alert projectile pythonic f js2-mode simple-httpd spaceline powerline which-key use-package hydra font-lock+ evil goto-chg async org-plus-contrib yaml-mode x86-lookup ws-butler writeroom-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen unfill undo-tree tagedit symon stickyfunc-enhance srefactor spinner spaceline-all-the-icons smeargle slim-mode shrink-path seeing-is-believing sass-mode rvm ruby-tools ruby-test-mode ruby-refactor rubocop robe reveal-in-osx-finder restart-emacs rbenv rake rainbow-mode rainbow-identifiers rainbow-delimiters pyenv-mode py-isort pug-mode prettier-js popwin pippel pipenv password-generator parent-mode packed overseer osx-trash osx-dictionary org-projectile org-present org-pomodoro org-bullets open-junk-file ob-elixir ob-coffeescript nasm-mode move-text monokai-theme mmm-mode minitest markdown-toc magit-svn magit-gitflow magit-gh-pulls macrostep lorem-ipsum log4e livid-mode link-hint launchctl json-navigator json-mode js2-refactor js-doc insert-shebang indent-guide importmagic hungry-delete hindent highlight-parentheses highlight helm-xref helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-mode-manager helm-hoogle helm-gtags helm-gitignore helm-git-grep helm-flx helm-descbinds helm-css-scss helm-c-yasnippet helm-ag haskell-snippets google-c-style golden-ratio gnuplot gntp gitignore-templates github-search github-clone gitconfig-mode gitattributes-mode git-messenger git-gutter-fringe git-gutter-fringe+ gist gh-md fuzzy forge flyspell-popup flyspell-correct-helm flycheck-rtags flycheck-pos-tip flycheck-mix flycheck-credo flycheck-bashate flx-ido fill-column-indicator fancy-battery expand-region evil-visualstar evil-unimpaired evil-tutor evil-org evil-numbers evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-ediff evil-cleverparens evil-anzu ess-R-data-view emmet-mode elisp-slime-nav dotenv-mode disaster diminish company-web company-tern company-shell company-rtags company-quickhelp company-ghci company-cabal company-c-headers company-auctex column-enforce-mode color-identifiers-mode coffee-mode cmm-mode clean-aindent-mode clang-format chruby centered-cursor-mode bundler bind-key auto-highlight-symbol auto-dictionary auctex-latexmk apiwrap alchemist ace-jump-helm-line ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
