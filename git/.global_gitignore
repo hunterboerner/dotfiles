@@ -42,3 +42,7 @@ Thumbs.db
 .sass-cache/
 .codekit-config.json
 config.codekit
+
+GTAGS
+GRTAGS
+GPATH
