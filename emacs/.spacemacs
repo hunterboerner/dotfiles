@@ -536,9 +536,11 @@ you should place your code here."
                                     (setq fill-column 72)
                                     (git-commit-turn-on-auto-fill)))
   (with-eval-after-load 'company
-    (define-key company-active-map (kbd "C-n") nil)
-    (define-key company-active-map (kbd "C-p") nil)
-    (define-key company-active-map (kbd "C-f") nil))
+    (define-key company-active-map (kbd "<return>") nil)
+    (define-key company-active-map (kbd "RET") nil)
+    (define-key company-active-map (kbd "C-SPC") 'company-complete-selection))
+
+  (global-set-key (kbd "M-TAB") 'company-manual-begin)
 
   (with-eval-after-load 'tex
     ;; use Skim as default pdf viewer
