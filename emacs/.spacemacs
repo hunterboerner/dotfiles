@@ -475,81 +475,111 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (setq org-agenda-files (list "~/org/work.org"
-                               "~/org/school.org"
-                               "~/org/notes.org"))
-  (setq org-capture-templates
-        '(("t" "Todo" entry (file+headline "~/org/notes.org" "Tasks")
-           "* TODO %?\n  %i\n  %a")
-          ("p" "Packlane Todo" entry (file+headline "~/org/work.org" "Tasks")
-           "* TODO %?\n  %i\n  %a")))
+  (setq org-agenda-files (list "~/org/work.org" "~/org/school.org"
+                           "~/org/notes.org"))
+  (setq org-capture-templates '(("t" "Todo"
+                                  entry
+                                  (file+headline "~/org/notes.org" "Tasks")
+                                  "* TODO %?\n  %i\n  %a")
+                                 ("p" "Packlane Todo"
+                                   entry
+                                   (file+headline "~/org/work.org" "Tasks")
+                                   "* TODO %?\n  %i\n  %a")))
   (remove-hook 'c-mode-common-hook 'spacemacs//c-toggle-auto-newline)
   ;; (setq powerline-default-separator 'bar)
   (setq tab-always-indent t)
   (spaceline-compile)
-  (setq evil-emacs-state-cursor '("SkyBlue" (bar . 2)))
+  (setq evil-emacs-state-cursor '("SkyBlue"
+                                   (bar . 2)))
   (setq-default cursor-type '(bar . 2))
-  (setq-default sp-escape-quotes-after-insert nil)
+  (setq-default sp-escape-quotes-after-insert
+    nil)
   (add-hook 'prog-mode-hook 'column-enforce-mode)
   (remove-hook 'LaTeX-mode-hook 'smartparens-mode)
   (setq column-enforce-column 80)
-  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-  (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+  (global-set-key (kbd "C->")
+    'mc/mark-next-like-this)
+  (global-set-key (kbd "C-<")
+    'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-<")
+    'mc/mark-all-like-this)
   (editorconfig-mode 1)
   (delete-selection-mode 1)
   (eval-after-load "alchemist"
     '(defun alchemist-company--wait-for-doc-buffer ()
        (setf num 50)
        (while (and (not alchemist-company-doc-lookup-done)
-                   (> (decf num) 1))
+                (> (decf num) 1))
          (sit-for 0.01))))
-
   (setq ess-swv-processor 'knitr)
   (setq ess-swv-plug-into-AUCTeX-p t)
   (add-hook 'LaTeX-mode-hook 'prettify-symbols-mode)
+
+  (fset 'insert-latex-array-item
+    (lambda (&optional arg)
+      "Insert ampersand"
+      (interactive "p")
+      (kmacro-exec-ring-item (quote (" & " 0 "%d"))
+        arg)))
+
+  (global-set-key (kbd "<kp-add>") 'insert-latex-array-item)
+
+  (fset 'insert-latex-array-row
+    (lambda (&optional arg)
+      "Keyboard macro."
+      (interactive "p")
+      (kmacro-exec-ring-item (quote ([32 92 92 return] 0
+                                      "%d"))
+        arg)))
+
+  (global-set-key (kbd "<kp-enter>") 'insert-latex-array-row)
+
   (defun ess-swv-add-TeX-commands-custom ()
     "Add commands to AUCTeX's \\[TeX-command-list]."
-    (unless (and (featurep 'tex-site) (featurep 'tex))
+    (unless (and (featurep 'tex-site)
+              (featurep 'tex))
       (error "AUCTeX does not seem to be loaded"))
     (add-to-list 'TeX-command-list
-                 '("Knit" "Rscript -e \"library(knitr); knit('%t')\""
-                   TeX-run-command nil (latex-mode) :help
-                   "Run Knitr") t)
+      '("Knit" "Rscript -e \"library(knitr); knit('%t')\""
+         TeX-run-command
+         nil
+         (latex-mode)
+         :help "Run Knitr")
+      t)
     (add-to-list 'TeX-command-list
-                 '("LaTeXKnit" "%l %(mode) %s"
-                   TeX-run-TeX nil (latex-mode) :help
-                   "Run LaTeX after Knit") t)
+      '("LaTeXKnit" "%l %(mode) %s"
+         TeX-run-TeX
+         nil
+         (latex-mode)
+         :help "Run LaTeX after Knit")
+      t)
     (setq TeX-command-default "Knit")
     (mapc (lambda (suffix)
             (add-to-list 'TeX-file-extensions suffix))
-          '("nw" "Snw" "Rnw")))
-
+      '("nw" "Snw" "Rnw")))
   ;; (defun ess-swv-remove-TeX-commands-custom (x)
   ;;   "Helper function: check if car of X is one of the Knitr strings"
   ;;   (let ((swv-cmds '("Knit" "LaTeXKnit")))
   ;;     (unless (member (car x) swv-cmds) x)))
 
   (advice-add 'ess-swv-add-TeX-commands :after #'ess-swv-add-TeX-commands-custom)
-;;  (show-smartparens-global-mode -1)
-  (add-hook 'git-commit-mode-hook (lambda ()
-                                    (setq fill-column 72)
-                                    (git-commit-turn-on-auto-fill)))
+  ;;  (show-smartparens-global-mode -1)
+  (add-hook 'git-commit-mode-hook
+    (lambda ()
+      (setq fill-column 72)
+      (git-commit-turn-on-auto-fill)))
   (with-eval-after-load 'company
     (define-key company-active-map (kbd "<return>") nil)
     (define-key company-active-map (kbd "RET") nil)
     (define-key company-active-map (kbd "C-SPC") 'company-complete-selection))
-
-  (global-set-key (kbd "M-TAB") 'company-manual-begin)
-
+  (global-set-key (kbd "M-TAB")
+    'company-manual-begin)
   (with-eval-after-load 'tex
     ;; use Skim as default pdf viewer
     ;; Skim's displayline is used for forward search (from .tex to .pdf)
     ;; option -b highlights the current line; option -g opens Skim in the background
     (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
-    (setq TeX-view-program-list
-          '(("PDF Viewer"
-             "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b")))))
+    (setq TeX-view-program-list '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b")))))
 
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
@@ -563,7 +593,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(LaTeX-electric-left-right-brace t)
  '(TeX-electric-math (quote ("\\(" . "\\)")))
- '(TeX-electric-sub-and-superscript t)
+ '(TeX-electric-sub-and-superscript nil)
  '(TeX-source-correlate-start-server (quote ask))
  '(auctex-latexmk-inherit-TeX-PDF-mode nil)
   '(company-frontends
