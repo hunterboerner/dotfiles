@@ -587,7 +587,8 @@ you should place your code here."
   (with-eval-after-load 'company
     (define-key company-active-map (kbd "<return>") nil)
     (define-key company-active-map (kbd "RET") nil)
-    (define-key company-active-map (kbd "C-SPC") 'company-complete-selection))
+    (define-key company-active-map (kbd "C-SPC") 'company-complete-selection)
+    (define-key company-active-map (kbd "M-SPC") 'company-complete-selection))
   (global-set-key (kbd "M-TAB")
     'company-manual-begin)
   (with-eval-after-load 'tex
