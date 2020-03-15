@@ -9,3 +9,4 @@ source $OMF_PATH/init.fish
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 source ~/.asdf/asdf.fish
+set -g fish_user_paths "/usr/local/opt/opencv@3/bin" $fish_user_paths
