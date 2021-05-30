@@ -1,6 +1,7 @@
 [user]
 	email = hunterboerner@gmail.com
 	name = Theron Boerner
+	signingkey = F6CF051630842B81
 [push]
 	default = simple
 [core]
@@ -32,3 +33,5 @@
 	includeStatusHeader = false
 	includePullRequestsSection = false
 	includeIssuesSection = false
+[commit]
+	gpgsign = true
