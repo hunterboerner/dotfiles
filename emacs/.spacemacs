@@ -580,11 +580,7 @@ you should place your code here."
   (setq org-capture-templates '(("t" "Todo"
                                   entry
                                   (file+headline "~/org/notes.org" "Tasks")
-                                  "* TODO %?\n  %i\n  %a")
-                                 ("p" "Packlane Todo"
-                                   entry
-                                   (file+headline "~/org/work.org" "Tasks")
-                                   "* TODO %?\n  %i\n  %a")))
+                                  "* TODO %?\n  %i\n  %a")))
   (remove-hook 'c-mode-common-hook 'spacemacs//c-toggle-auto-newline)
   (setq powerline-default-separator 'wave)
   (setq tab-always-indent t)
