@@ -573,6 +573,8 @@ you should place your code here."
     "[" 'evil-jump-backward
     "]" 'evil-jump-forward)
 
+  (add-to-list 'auto-mode-alist '("\\.leex\\'" . web-mode))
+
   (setq org-agenda-files (list "~/org/work.org" "~/org/school.org"
                            "~/org/notes.org"))
   (setq org-capture-templates '(("t" "Todo"
