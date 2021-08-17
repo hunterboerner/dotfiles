@@ -574,6 +574,10 @@ you should place your code here."
     "[" 'evil-jump-backward
     "]" 'evil-jump-forward)
 
+  (setq lsp-disabled-clients '(eslint))
+  (setq js2-mode-show-parse-errors nil)
+  (setq js2-mode-show-strict-warnings nil)
+
   (add-to-list 'auto-mode-alist '("\\.leex\\'" . web-mode))
 
   (setq org-agenda-files (list "~/org/work.org" "~/org/school.org"
