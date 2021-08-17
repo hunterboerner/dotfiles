@@ -37,6 +37,7 @@ This function should only modify configuration layer settings."
        typescript
        csv
        react
+       treemacs
        lsp
        python
        ruby
