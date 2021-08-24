@@ -42,7 +42,6 @@ This function should only modify configuration layer settings."
        python
        ruby
        gtags
-       neotree
        shell-scripts
        tern
        ;; ----------------------------------------------------------------
